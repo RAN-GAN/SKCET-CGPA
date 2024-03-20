@@ -187,7 +187,7 @@ function App() {
         <br />
 
         <div className="container rcon">
-          <h1>Your tentaive SGPA is</h1>
+          <h1>Your tentative SGPA is</h1>
           <h3>{result}</h3>
           <button
             className="back"
