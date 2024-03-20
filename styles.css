@@ -9,15 +9,14 @@ body {
 
 header {
   background-color: rgb(33, 120, 197);
-  padding: 1rem; /* Use rem units for better responsiveness */
-  text-align: center; /* Center-align text in the header */
-  color: white; /* White text color */
+  padding: 1rem;
+  text-align: center;
+  color: white;
 }
 
-/* Make the image responsive */
 header img {
-  max-width: 100%; /* Set the maximum width of the image to 100% of the container */
-  height: auto; /* Allow the image to scale proportionally */
+  max-width: 100%;
+  height: auto;
 }
 
 .container {
