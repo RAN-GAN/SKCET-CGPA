@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../Footer";
 
-function CSEContainer() {
+function CSDContainer() {
   const [getData, setGetData] = useState(true);
   const [result, setResult] = useState("");
 
@@ -11,7 +11,7 @@ function CSEContainer() {
       adp: 3,
       cpp: 4,
       owc: 3,
-      nc: 4,
+      dld: 4,
       hot: 1,
     };
 
@@ -27,14 +27,14 @@ function CSEContainer() {
       credits.adp +
       credits.cpp +
       credits.owc +
-      credits.nc +
+      credits.dld +
       credits.hot;
     let totalGradePoints = 0;
-    totalGradePoints += credits.maths * getGradePoints(grade1);
-    totalGradePoints += credits.adp * getGradePoints(grade2);
-    totalGradePoints += credits.cpp * getGradePoints(grade3);
-    totalGradePoints += credits.owc * getGradePoints(grade4);
-    totalGradePoints += credits.nc * getGradePoints(grade5);
+    totalGradePoints += credits.cpp * getGradePoints(grade1);
+    totalGradePoints += credits.dld * getGradePoints(grade2);
+    totalGradePoints += credits.owc * getGradePoints(grade3);
+    totalGradePoints += credits.adp * getGradePoints(grade4);
+    totalGradePoints += credits.maths * getGradePoints(grade5);
     totalGradePoints += credits.hot * getGradePoints(grade6);
 
     const sgpa = totalGradePoints / totalCredits;
@@ -67,10 +67,10 @@ function CSEContainer() {
     return (
       <>
         <div className="container">
-          <h1 style={{ textAlign: "center" }}>CSE 1'st semester</h1>
+          <h1 style={{ textAlign: "center" }}>CSD 1'st semester</h1>
           <h2>SGPA Calculator</h2>
           <form id="sgpaForm">
-            <label htmlFor="grade1">Mathematics I:</label> <br />
+            <label htmlFor="grade1">PROBLEM SOLVING USING C++:</label> <br />
             <select id="grade1" name="grade1">
               <option value="\0">-select-</option>
               <option value="O">O</option>
@@ -85,7 +85,7 @@ function CSEContainer() {
             <br />
             <br />
             <label htmlFor="grade2">
-              Application Development Practices :
+              DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE:
             </label>{" "}
             <br />
             <select id="grade2" name="grade2">
@@ -101,7 +101,9 @@ function CSEContainer() {
             <input type="hidden" name="credit2" value="3" />
             <br />
             <br />
-            <label htmlFor="grade3">Problem Solving using c++:</label>
+            <label htmlFor="grade3">
+              ORAL AND WRITTEN COMMUNICATION SKILLS:
+            </label>
             <br />
             <select id="grade3" name="grade3">
               <option value="\0">-select-</option>
@@ -117,7 +119,7 @@ function CSEContainer() {
             <br />
             <br />
             <label htmlFor="grade4">
-              Oral and Written Communication Skills:
+              APPLICATION DEVELOPMENT PRACTICES:
             </label>{" "}
             <br />
             <select id="grade4" name="grade4">
@@ -133,10 +135,7 @@ function CSEContainer() {
             <input type="hidden" name="credit4" value="3" />
             <br />
             <br />
-            <label htmlFor="grade5">
-              DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE:
-            </label>{" "}
-            <br />
+            <label htmlFor="grade5">MATHEMATICS I</label> <br />
             <select id="grade5" name="grade5">
               <option value="\0">-select-</option>
               <option value="O">O</option>
@@ -187,4 +186,4 @@ function CSEContainer() {
     );
   }
 }
-export default CSEContainer;
+export default CSDContainer;

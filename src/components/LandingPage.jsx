@@ -3,6 +3,9 @@ import MTechContainer from "./Departments/MTechContainer";
 import CSYContainer from "./Departments/CSYContainer";
 import CSEContainer from "./Departments/CSEContainer";
 import ECEContainer from "./Departments/ECEContainer";
+import ITContainer from "./Departments/ITContainer";
+import AIDSContainer from "./Departments/AIDSContainer";
+import CSDContainer from "./Departments/CSDContainer";
 
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState(null);
@@ -23,6 +26,12 @@ function LandingPage() {
             <CSEContainer></CSEContainer>
           ) : selectedDept === "ECE" ? (
             <ECEContainer></ECEContainer>
+          ) : selectedDept === "IT" ? (
+            <ITContainer></ITContainer>
+          ) : selectedDept === "AIDS" ? (
+            <AIDSContainer></AIDSContainer>
+          ) : selectedDept === "CSD" ? (
+            <CSDContainer></CSDContainer>
           ) : selectedDept === "OtherDept" ? (
             <p>Render Other Department component here</p>
           ) : (
@@ -45,14 +54,6 @@ function LandingPage() {
               <div className="dept">
                 <button
                   className="deptB"
-                  onClick={() => handleDeptClick("CSY")}
-                >
-                  CSY
-                </button>
-              </div>
-              <div className="dept">
-                <button
-                  className="deptB"
                   onClick={() => handleDeptClick("CSE")}
                 >
                   CSE
@@ -61,9 +62,38 @@ function LandingPage() {
               <div className="dept">
                 <button
                   className="deptB"
+                  onClick={() => handleDeptClick("CSY")}
+                >
+                  CSY
+                </button>
+              </div>
+              <div className="dept">
+                <button
+                  className="deptB"
                   onClick={() => handleDeptClick("ECE")}
                 >
                   ECE
+                </button>
+              </div>
+              <div className="dept">
+                <button className="deptB" onClick={() => handleDeptClick("IT")}>
+                  IT
+                </button>
+              </div>
+              <div className="dept">
+                <button
+                  className="deptB"
+                  onClick={() => handleDeptClick("AIDS")}
+                >
+                  AI&DS
+                </button>
+              </div>
+              <div className="dept">
+                <button
+                  className="deptB"
+                  onClick={() => handleDeptClick("CSD")}
+                >
+                  CSD
                 </button>
               </div>
               <div className="dept">

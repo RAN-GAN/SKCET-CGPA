@@ -35,6 +35,8 @@ h2 {
 
 form {
   margin-bottom: 2rem;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 label {
@@ -48,17 +50,6 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
-
-/* button {
-  padding: 0.5rem 1rem;
-  background-color: rgb(33, 120, 197);
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background-color: rgb(26, 95, 157);
-} */
 
 select option {
   padding: 0.5rem;
@@ -82,7 +73,6 @@ select option {
   margin-bottom: 2%;
 }
 
-/* Footer Styles */
 footer {
   background-color: #2178c5;
   padding: 20px;
