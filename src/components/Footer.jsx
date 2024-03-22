@@ -23,26 +23,6 @@ function Footer() {
           </a>
         </p>
       </div>
-      <div>
-        <h4>Ajay R</h4>
-        <p>
-          <a
-            href="https://www.linkedin.com/in/ajayr11"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>{" "}
-          |{" "}
-          <a
-            href="https://github.com/Ajay9345"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </p>
-      </div>
     </footer>
   );
 }
