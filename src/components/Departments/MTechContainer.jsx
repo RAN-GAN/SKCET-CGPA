@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Footer from "../Footer";
-
+import ResultContainer from "../ResultContainer";
 function MTechContainer() {
   const [getData, setGetData] = useState(true);
   const [result, setResult] = useState("");
-
   function calculateSGPA() {
     const credits = {
       psuc: 4.5,
@@ -172,15 +171,7 @@ function MTechContainer() {
       </>
     );
   } else {
-    return (
-      <div className="container rcon">
-        <h2>Your tentative SGPA is</h2>
-        <h3>{result}</h3>
-        <button className="back" type="button" onClick={() => setGetData(true)}>
-          Back
-        </button>
-      </div>
-    );
+    return <ResultContainer score={result} setGetData={setGetData} />;
   }
 }
 export default MTechContainer;
