@@ -152,7 +152,9 @@ button:hover {
   background-color: #016bbb;
   color: white;
 }
-
+button:hover .deptLogo {
+  filter: grayscale(100%) brightness(3); /* Make the logo grayscale by default */
+}
 .LogoNameWrapper {
   display: flex;
   justify-content: space-evenly;
