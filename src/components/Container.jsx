@@ -11,14 +11,6 @@ function Container({ dept, setContainerVisible }) {
       "Tamils and Technology": 1,
       "Data Structures and Algorithm": 3,
     },
-    CSE: {
-      Integration: 4,
-      "C Programming": 3,
-      "Basics of Electrical and Physical Engineering": 3,
-      "Digital System Design": 4,
-      "Tamils and Technology": 1,
-      "Data Structures and Algorithm": 3,
-    },
   };
   if (!subjects.hasOwnProperty(dept)) {
     return (
