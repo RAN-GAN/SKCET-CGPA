@@ -32,6 +32,7 @@ h1 {
   color: #034150;
 }
 h2 {
+  text-align: center;
   margin-bottom: 1rem;
   color: #034150;
 }
@@ -150,4 +151,15 @@ button {
 button:hover {
   background-color: #016bbb;
   color: white;
+}
+button:hover .deptLogo {
+  filter: grayscale(100%) brightness(3); /* Make the logo grayscale by default */
+}
+.LogoNameWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.deptLogo {
+  width: 25px;
 }
