@@ -23,14 +23,25 @@ function Container({ dept, setContainerVisible }) {
           height: "100vh",
         }}
       >
-        <h1
+        <h2
           style={{
             textAlign: "center",
             padding: "10px",
           }}
         >
-          This department will be added soon!!
-        </h1>
+          We are currently working on adding more departments and subjects.
+          <br />
+          <a
+            href="https://forms.gle/dwRe6sEWJJsqUFBKA"
+            target="_blank"
+            style={{
+              color: "rgb(33, 120, 197)",
+              textDecoration: "underline",
+            }}
+          >
+            help us by filling out this form!
+          </a>
+        </h2>
         <button type="button" onClick={() => setContainerVisible(false)}>
           Back
         </button>
