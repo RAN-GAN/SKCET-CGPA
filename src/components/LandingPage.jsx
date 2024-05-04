@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Container from "./Container"; // Update the path to the correct file
+import Container from "./Container";
 
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState("");
@@ -50,7 +50,7 @@ function LandingPage() {
                   <div className="LogoNameWrapper">
                     <img
                       className="deptLogo"
-                      src={`assets/${department}.webp`}
+                      src={`${department}.webp`}
                       alt={department}
                     />
                     {department}
