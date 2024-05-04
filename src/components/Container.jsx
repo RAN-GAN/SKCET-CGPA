@@ -20,6 +20,31 @@ function Container({ dept, setContainerVisible }) {
       "Data Structures and Algorithm": 3,
     },
   };
+  if (!subjects.hasOwnProperty(dept)) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "start",
+          flexDirection: "column",
+          height: "100vh",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            padding: "10px",
+          }}
+        >
+          This department will be added soon!!
+        </h1>
+        <button type="button" onClick={() => setContainerVisible(false)}>
+          Back
+        </button>
+      </div>
+    );
+  }
 
   const departmentSubjects = subjects[dept];
   const [getData, setGetData] = useState(true);
