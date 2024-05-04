@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "./Container"; // Update the path to the correct file
 
 function LandingPage() {
@@ -28,7 +28,7 @@ function LandingPage() {
   if (containerVisible) {
     return (
       <div>
-        <Container dept={selectedDept} /> {/* Use 'dept' prop */}
+        <Container dept={selectedDept} />
       </div>
     );
   } else {
@@ -41,9 +41,17 @@ function LandingPage() {
               <div className="dept" key={department}>
                 <button
                   className="deptB"
+                  type="button"
                   onClick={() => handleDeptClick(department)}
                 >
-                  {department}
+                  <div className="LogoNameWrapper">
+                    <img
+                      className="deptLogo"
+                      src={`assests/departmentLogos/${department}.webp`}
+                      alt={department}
+                    />
+                    {department}
+                  </div>
                 </button>
               </div>
             ))}
