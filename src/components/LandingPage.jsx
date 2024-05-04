@@ -50,7 +50,7 @@ function LandingPage() {
                   <div className="LogoNameWrapper">
                     <img
                       className="deptLogo"
-                      src={`assests/departmentLogos/${department}.webp`}
+                      src={`assests/${department}.webp`}
                       alt={department}
                     />
                     {department}
