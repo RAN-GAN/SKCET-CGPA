@@ -13,5 +13,13 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ["react", "react-dom"],
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
   assetsInclude: ["assets/**"], // Include assets directory
 });
