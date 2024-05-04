@@ -28,7 +28,10 @@ function LandingPage() {
   if (containerVisible) {
     return (
       <div>
-        <Container dept={selectedDept} />
+        <Container
+          dept={selectedDept}
+          setContainerVisible={setContainerVisible}
+        />
       </div>
     );
   } else {

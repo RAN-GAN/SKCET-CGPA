@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ResultContainer from "./ResultContainer";
 
-function Container({ dept }) {
+function Container({ dept, setContainerVisible }) {
   const subjects = {
     "MTech CSE": {
       "Integral Calculus and Complex Variable": 4,
@@ -73,7 +73,7 @@ function Container({ dept }) {
           <button type="button" onClick={handleCalculate}>
             Calculate
           </button>
-          <button type="button" onClick={() => window.location.reload()}>
+          <button type="button" onClick={() => setContainerVisible(false)}>
             Back
           </button>
         </form>
