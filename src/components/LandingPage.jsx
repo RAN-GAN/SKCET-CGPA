@@ -22,7 +22,6 @@ function LandingPage() {
   function handleDeptClick(dept) {
     setSelectedDept(dept);
     setContainerVisible(true);
-    console.log(selectedDept);
   }
 
   if (containerVisible) {

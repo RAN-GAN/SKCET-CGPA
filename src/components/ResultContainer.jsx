@@ -1,5 +1,4 @@
 function ResultContainer({ score, setGetData }) {
-  console.log(score);
   if (score === undefined || score === null || isNaN(score)) {
     return (
       <div className="container rcon">
