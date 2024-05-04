@@ -26,7 +26,6 @@ function Container({ dept, setContainerVisible }) {
   const [cgpa, setCgpa] = useState(0);
 
   const handleCalculate = () => {
-    console.log("Calculate button clicked");
     let totalGradePoints = 0;
     let totalCredit = 0;
     for (let i = 1; i <= 6; i++) {
