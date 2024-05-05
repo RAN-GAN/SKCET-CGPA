@@ -20,17 +20,17 @@ To use the SKCET SGPA Calculator, follow these steps:
 
 _Usage_
 
-To calculate your CGPA using the SKCET CGPA Calculator, follow these steps:
+To calculate your SGPA using the SKCET SGPA Calculator, follow these steps:
 
 1. Choose your department from the available options.
 2. Select the grades you received for each subject in your 1st semester.
 3. Click the "Calculate" button to view your SGPA.
 
 Or visit this website:
-![Click Here!!!](https://ran-gan.github.io/SKCET-CGPA/)
+[Click Here!!!][1]
 _Contributing_
 
-Contributions to the SKCET CGPA Calculator are welcome! To contribute, follow these steps:
+Contributions to the SKCET SGPA Calculator are welcome! To contribute, follow these steps:
 
 1. Fork the repository on GitHub.
 2. Clone your forked repository to your local machine.
@@ -39,6 +39,4 @@ Contributions to the SKCET CGPA Calculator are welcome! To contribute, follow th
 5. Push your changes to your forked repository.
 6. Submit a pull request to the main repository.
 
-_License_
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+[1]:https://ran-gan.github.io/SKCET-CGPA/
