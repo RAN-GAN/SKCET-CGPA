@@ -4,12 +4,62 @@ import ResultContainer from "./ResultContainer";
 function Container({ dept, setContainerVisible }) {
   const subjects = {
     "MTech CSE": {
-      "Integral Calculus and Complex Variable": 4,
-      "Python Programming": 3,
-      "Basics of Electrical and Electronic Engineering": 3,
-      "Digital Principal and System Design": 4,
-      "Tamils and Technology": 1,
-      "Data Structures and Algorithm": 3,
+      "Problem Solving using C": 4.5,
+      "Business English and Communication": 3,
+      "Linear Algebra and Differential Calculus": 4,
+      "Engineering Graphics": 3,
+      "Engineering Physics": 4,
+      "Heritage of Tamil": 1,
+    },
+    AIDS: {
+      "PROBLEM SOLVING USING C++": 4,
+      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "MATHEMATICS I": 4,
+      "Heritage of Tamils": 1,
+    },
+    CSD: {
+      "PROBLEM SOLVING USING C++": 4,
+      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "MATHEMATICS I": 4,
+      "Heritage of Tamils": 1,
+    },
+    CSE: {
+      "Mathematics I": 4,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "PROBLEM SOLVING USING C++": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "Digital Logistics and Design": 4,
+      "Heritage of Tamils": 1,
+    },
+    CSY: {
+      "Mathematics I": 4,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "PROBLEM SOLVING USING C++": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "Digital Logistics and Design": 4,
+      "Heritage of Tamils": 1,
+    },
+    ECE: {
+      "APPLIED SCIENCE": 4,
+      "APPLIED SCIENCE LABORATORY": 2,
+      "PROBLEM SOLVING USING C++": 3,
+      "CIRCUIT THEORY AND ELECTRON DEVICES": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "MATHEMATICS I": 4,
+      "ENGINEERING BIOLOGY": 3,
+      "HERITAGE OF TAMILS": 1,
+    },
+    IT: {
+      "PROBLEM SOLVING USING C++": 4,
+      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "MATHEMATICS I": 4,
+      "Heritage of Tamils": 1,
     },
   };
   if (!subjects.hasOwnProperty(dept)) {
@@ -78,7 +128,7 @@ function Container({ dept, setContainerVisible }) {
   if (getData) {
     return (
       <div className="container">
-        <h1 style={{ textAlign: "center" }}>{dept} 2nd semester</h1>
+        <h1 style={{ textAlign: "center" }}>{dept} 1'st semester</h1>
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
           {Object.keys(departmentSubjects).map((subject, index) => (

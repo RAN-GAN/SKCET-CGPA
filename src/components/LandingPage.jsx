@@ -6,17 +6,17 @@ function LandingPage() {
   const [containerVisible, setContainerVisible] = useState(false);
   const departments = [
     "MTech CSE",
-    "CSE",
-    "CSY",
-    "IT",
-    "ECE",
-    "EEE",
-    "CSBS",
     "AIDS",
     "CIVIL",
-    "MECH",
-    "MCT",
+    "CSBS",
     "CSD",
+    "CSE",
+    "CSY",
+    "ECE",
+    "EEE",
+    "IT",
+    "MCT",
+    "MECH",
   ];
 
   function handleDeptClick(dept) {
