@@ -28,6 +28,7 @@ To calculate your SGPA using the SKCET SGPA Calculator, follow these steps:
 
 Or visit this website:
 [Click Here!!!][1]
+
 _Contributing_
 
 Contributions to the SKCET SGPA Calculator are welcome! To contribute, follow these steps:
