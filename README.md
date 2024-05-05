@@ -7,13 +7,13 @@
 **SKCET CGPA Calculator**  
 _Description_
 
-The SKCET CGPA Calculator is a web application designed to help students of Sri Krishna College of Engineering and Technology (SKCET) calculate their Cumulative Grade Point Average (CGPA) for their academic performance. The application is specifically tailored for MTech Computer Science and Engineering (CSE) students in their 1st semester.
+The SKCET SGPA Calculator is a web application designed to help students of Sri Krishna College of Engineering and Technology (SKCET) calculate their Semester Grade Point Average (SGPA) for their academic performance. The application is specifically tailored for SKCET students in their 1st semester.
 
 _Installation_
 
-To use the SKCET CGPA Calculator, follow these steps:
+To use the SKCET SGPA Calculator, follow these steps:
 
-1. Clone the repository to your local machine using `git clone https://github.com/your-username/SKCET-CGPA.git`.
+1. Clone the repository to your local machine using `git clone https://github.com/RAN-GAN/SKCET-CGPA.git`.
 2. Navigate to the project directory using `cd SKCET-CGPA`.
 3. Install dependencies using `npm install`.
 4. Start the application using `npm start`.
@@ -26,6 +26,8 @@ To calculate your CGPA using the SKCET CGPA Calculator, follow these steps:
 2. Select the grades you received for each subject in your 1st semester.
 3. Click the "Calculate" button to view your SGPA.
 
+Or visit this website:
+![Click Here!!!](https://ran-gan.github.io/SKCET-CGPA/)
 _Contributing_
 
 Contributions to the SKCET CGPA Calculator are welcome! To contribute, follow these steps:
