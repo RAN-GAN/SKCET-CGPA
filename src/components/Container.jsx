@@ -106,7 +106,7 @@ function Container({ dept, setContainerVisible }) {
   const handleCalculate = () => {
     let totalGradePoints = 0;
     let totalCredit = 0;
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= Object.keys(subjects[dept]).length; i++) {
       const selectedValue = document.querySelector(`#grade${i}`).value;
       const credit = parseInt(
         subjects[dept][Object.keys(subjects[dept])[i - 1]]
