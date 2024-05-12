@@ -40,7 +40,7 @@ function Container({ dept, setContainerVisible }) {
       "APPLICATION DEVELOPMENT PRACTICES": 3,
       "PROBLEM SOLVING USING C++": 4,
       "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "Digital Logistics and Design": 4,
+      "Networking and Communication": 4,
       "Heritage of Tamils": 1,
     },
     ECE: {
