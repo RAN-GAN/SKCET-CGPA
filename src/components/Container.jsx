@@ -61,6 +61,15 @@ function Container({ dept, setContainerVisible }) {
       "MATHEMATICS I": 4,
       "Heritage of Tamils": 1,
     },
+    CSBS: {
+      "Problem Solving using C": 4.5,
+      "Discrete Mathematics for Computer Science": 4,
+      "probability and Statistics": 4,
+      "Heritage of Tamils": 1,
+      "Principles of Electrical Engineering": 4,
+      "Physics for Computing Science": 4,
+      "Business Communication and Value Science I": 3,
+    },
   };
   if (!subjects.hasOwnProperty(dept)) {
     return (
