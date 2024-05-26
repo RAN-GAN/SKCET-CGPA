@@ -8,7 +8,7 @@ function Container({ dept, setContainerVisible }) {
       "Business English and Communication": 3,
       "Linear Algebra and Differential Calculus": 4,
       "Engineering Graphics": 3,
-      "Engineering Physics": 3,
+      "Engineering Physics": 4,
       "Heritage of Tamil": 1,
     },
     AIDS: {
