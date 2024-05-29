@@ -4,7 +4,7 @@ import ResultContainer from "./ResultContainer";
 function Container({ dept, setContainerVisible }) {
   const subjects = {
     "MTech CSE": {
-      "Problem Solving using C": 4.5,
+      "Problem Solving using C": 3,
       "Business English and Communication": 3,
       "Linear Algebra and Differential Calculus": 4,
       "Engineering Graphics": 3,
