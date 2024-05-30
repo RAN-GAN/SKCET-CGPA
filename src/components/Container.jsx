@@ -70,6 +70,17 @@ function Container({ dept, setContainerVisible }) {
       "Physics for Computing Science": 4,
       "Business Communication and Value Science I": 3,
     },
+    MCT: {
+      "Mathematics I": 4,
+      "Applied Science": 4,
+      "Production Technology": 3,
+      "Sensors Measurements and Instrumentation": 3,
+      "Problem solving using C++": 3,
+      "Application Development Practices": 3,
+      "Heritage of Tamils": 1,
+      "Applied Science Laboratory": 2,
+      "Production Technology Laboratory": 1,
+    },
   };
   if (!subjects.hasOwnProperty(dept)) {
     return (
