@@ -12,11 +12,11 @@ function Container({ dept, setContainerVisible }) {
       "Heritage of Tamil": 1,
     },
     AIDS: {
-      "PROBLEM SOLVING USING C++": 4,
-      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
       "MATHEMATICS I": 4,
+      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
+      "PROBLEM SOLVING USING C++": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
       "Heritage of Tamils": 1,
     },
     CSD: {
@@ -28,11 +28,11 @@ function Container({ dept, setContainerVisible }) {
       "Heritage of Tamils": 1,
     },
     CSE: {
-      "Mathematics I": 4,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "PROBLEM SOLVING USING C++": 4,
+      "MATHEMATICS I": 4,
       "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "Digital Logistics and Design": 4,
+      "PROBLEM SOLVING USING C++": 3,
+      "APPLICATION DEVELOPMENT PRACTICES": 3,
+      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
       "Heritage of Tamils": 1,
     },
     CSY: {
