@@ -20,7 +20,7 @@ function Container({ dept, setContainerVisible }) {
       "Heritage of Tamils": 1,
     },
     CSD: {
-      "PROBLEM SOLVING USING C++": 4,
+      "PROBLEM SOLVING USING C++": 3,
       "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
       "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
       "APPLICATION DEVELOPMENT PRACTICES": 3,
@@ -38,7 +38,7 @@ function Container({ dept, setContainerVisible }) {
     CSY: {
       "Mathematics I": 4,
       "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "PROBLEM SOLVING USING C++": 4,
+      "PROBLEM SOLVING USING C++": 3,
       "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
       "Networking and Communication": 4,
       "Heritage of Tamils": 1,
@@ -54,7 +54,7 @@ function Container({ dept, setContainerVisible }) {
       "HERITAGE OF TAMILS": 1,
     },
     IT: {
-      "PROBLEM SOLVING USING C++": 4,
+      "PROBLEM SOLVING USING C++": 3,
       "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
       "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
       "APPLICATION DEVELOPMENT PRACTICES": 3,
@@ -62,7 +62,7 @@ function Container({ dept, setContainerVisible }) {
       "Heritage of Tamils": 1,
     },
     CSBS: {
-      "Problem Solving using C": 4.5,
+      "Problem Solving using C": 3,
       "Discrete Mathematics for Computer Science": 4,
       "probability and Statistics": 4,
       "Heritage of Tamils": 1,
