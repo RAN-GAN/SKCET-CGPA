@@ -4,82 +4,48 @@ import ResultContainer from "./ResultContainer";
 function Container({ dept, setContainerVisible }) {
   const subjects = {
     "MTech CSE": {
-      "Problem Solving using C": 3,
-      "Business English and Communication": 3,
-      "Linear Algebra and Differential Calculus": 4,
-      "Engineering Graphics": 3,
-      "Engineering Physics": 4,
-      "Heritage of Tamil": 1,
-    },
-    AIDS: {
-      "MATHEMATICS I": 4,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "PROBLEM SOLVING USING C++": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
-      "Heritage of Tamils": 1,
-    },
-    CSD: {
-      "PROBLEM SOLVING USING C++": 3,
-      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "MATHEMATICS I": 4,
-      "Heritage of Tamils": 1,
+      "Integral Calculus and Complex Variables": 4,
+      "Python Programming": 3,
+      "Data Structures": 4,
+      "Basics of Electrical and Electronics Engineering ": 3,
+      "Digital Principles and System Design": 4,
+      "Tamils and Technology": 1,
     },
     CSE: {
-      "MATHEMATICS I": 4,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "PROBLEM SOLVING USING C++": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
-      "Heritage of Tamils": 1,
+      "Mathematics II": 4,
+      "Applied Science ": 4,
+      "Data Structures and Algorithms": 3,
+      "Database Management Systems ": 3,
+      "Java Programmming": 3,
+      "Object Oriented Analysis and Design ": 4,
+      "Tamils and Technology": 1,
     },
     CSY: {
-      "Mathematics I": 4,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "PROBLEM SOLVING USING C++": 3,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "Networking and Communication": 4,
-      "Heritage of Tamils": 1,
-    },
-    ECE: {
-      "APPLIED SCIENCE": 4,
-      "APPLIED SCIENCE LABORATORY": 2,
-      "PROBLEM SOLVING USING C++": 3,
-      "CIRCUIT THEORY AND ELECTRON DEVICES": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "MATHEMATICS I": 4,
-      "ENGINEERING BIOLOGY": 3,
-      "HERITAGE OF TAMILS": 1,
+      "Mathematics II": 4,
+      "Applied Science ": 4,
+      "Data Structures and Algorithms": 3,
+      "Database Management Systems ": 3,
+      "Object Oriented Programming using Java ": 3,
+      "Operating Systems ": 4,
+      "Tamils and Technology": 1,
     },
     IT: {
-      "PROBLEM SOLVING USING C++": 3,
-      "DIGITAL LOGIC DESIGN AND COMPUTER ARCHITECTURE": 4,
-      "ORAL AND WRITTEN COMMUNICATION SKILLS": 3,
-      "APPLICATION DEVELOPMENT PRACTICES": 3,
-      "MATHEMATICS I": 4,
-      "Heritage of Tamils": 1,
+      "Mathematics II": 4,
+      "Applied Science ": 4,
+      "Data Structures and Algorithms": 3,
+      "Database Management Systems ": 3,
+      "Java Programmming": 3,
+      "Object Oriented Analysis and Design ": 4,
+      "Tamils and Technology": 1,
     },
     CSBS: {
-      "Problem Solving using C": 3,
-      "Discrete Mathematics for Computer Science": 4,
-      "probability and Statistics": 4,
-      "Heritage of Tamils": 1,
-      "Principles of Electrical Engineering": 4,
-      "Physics for Computing Science": 4,
-      "Business Communication and Value Science I": 3,
-    },
-    MCT: {
-      "Mathematics I": 4,
-      "Applied Science": 4,
-      "Production Technology": 3,
-      "Sensors Measurements and Instrumentation": 3,
-      "Problem solving using C++": 3,
-      "Application Development Practices": 3,
-      "Heritage of Tamils": 1,
-      "Applied Science Laboratory": 2,
-      "Production Technology Laboratory": 1,
+      "Linear Algebra ": 4,
+      "Business Communication and Value Science II ": 3,
+      "Fundamentals of Economics ": 3,
+      "Data Structures ": 3,
+      "Tamils and Technology": 1,
+      "Principles of Electronics Engineering": 4,
+      "Statistical Methods and Modelling ": 4,
     },
   };
   if (!subjects.hasOwnProperty(dept)) {
@@ -101,6 +67,7 @@ function Container({ dept, setContainerVisible }) {
         >
           We are currently working on adding more departments and subjects.
           <br />
+          <br />
           <a
             href="https://forms.gle/dwRe6sEWJJsqUFBKA"
             target="_blank"
@@ -111,6 +78,9 @@ function Container({ dept, setContainerVisible }) {
           >
             help us by filling out this form!
           </a>
+          <br />
+          <br />
+          Meanwhile try using the <b>"CALCULATE YOURSELF"</b> option.
         </h2>
         <button type="button" onClick={() => setContainerVisible(false)}>
           Back
@@ -177,7 +147,7 @@ function Container({ dept, setContainerVisible }) {
       </div>
     );
   } else {
-    return <ResultContainer score={cgpa} setGetData={setGetData} />;
+    return <ResultContainer score={cgpa} setGetData={setGetData} mode="auto" />;
   }
 }
 

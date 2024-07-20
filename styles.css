@@ -37,6 +37,17 @@ h2 {
   color: #034150;
 }
 
+h3 {
+  color: #034150;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.yourself {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 form {
   margin-bottom: 2rem;
   padding-right: 20px;
@@ -47,11 +58,19 @@ label {
   font-weight: bold;
 }
 
-input,
 select {
   padding: 0.5rem;
   margin-bottom: 1rem;
   width: 100%;
+  box-sizing: border-box;
+  border: 2px solid gray;
+}
+
+input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 380px;
   box-sizing: border-box;
   border: 2px solid gray;
 }
@@ -163,3 +182,10 @@ button:hover .deptLogo {
 .deptLogo {
   width: 25px;
 }
+
+/* .sgpaForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} */

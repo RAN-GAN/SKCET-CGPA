@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Container from "./Container";
+import Calculate from "./Calculate";
 
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState("");
@@ -24,19 +25,55 @@ function LandingPage() {
     setContainerVisible(true);
   }
 
+  function handleYourselfClick() {
+    console.log("Yourself");
+    setSelectedDept("Yourself");
+    setContainerVisible(true);
+  }
+
   if (containerVisible) {
-    return (
-      <div>
-        <Container
-          dept={selectedDept}
-          setContainerVisible={setContainerVisible}
-        />
-      </div>
-    );
+    if (selectedDept === "Yourself") {
+      // setContainerVisible(false);
+      return (
+        <>
+          <Calculate
+            setContainerVisible={setContainerVisible}
+            dept={selectedDept}
+          ></Calculate>
+        </>
+      );
+    } else {
+      return (
+        <div>
+          <Container
+            dept={selectedDept}
+            setContainerVisible={setContainerVisible}
+          />
+        </div>
+      );
+    }
   } else {
     return (
       <div>
         <div className="department">
+          <h2>Calculate Yourself</h2>
+          <div className="yourself">
+            <button
+              className="deptB"
+              type="button"
+              onClick={() => handleYourselfClick()}
+            >
+              <div className="LogoNameWrapper">
+                <img
+                  className="deptLogo"
+                  src={`calculator.webp`}
+                  alt="yourself"
+                />
+                Calculate Yourself
+              </div>
+            </button>
+          </div>
+          <h3>Or</h3>
           <h2>Choose your Department</h2>
           <div className="departments">
             {departments.map((department) => (
