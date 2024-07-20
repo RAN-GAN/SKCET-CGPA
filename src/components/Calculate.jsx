@@ -87,6 +87,7 @@ function Calculate({ setContainerVisible }) {
               <label htmlFor={`credit${index + 1}`}>
                 Credit of Subject {index + 1}
               </label>
+              <br />
               <input
                 type="number"
                 id={`credit${index + 1}`}
