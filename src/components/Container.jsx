@@ -10,6 +10,7 @@ function Container({ dept, setContainerVisible }) {
       "Basics of Electrical and Electronics Engineering ": 3,
       "Digital Principles and System Design": 4,
       "Tamils and Technology": 1,
+      "Python Programming Laboratory": 1.5,
     },
     CSE: {
       "Mathematics II": 4,
