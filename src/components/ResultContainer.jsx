@@ -23,6 +23,9 @@ function ResultContainer({ score, setGetData, mode }) {
       <div className="container rcon">
         <h2>Your tentative SGPA is:</h2>
         <h3>{score}</h3>
+        <br />
+        <br />
+        <small>Disclaimer: This does not represent your final SGPA</small>
         <button className="back" type="button" onClick={handleBack}>
           Back
         </button>
