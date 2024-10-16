@@ -16,7 +16,7 @@ To use the SKCET SGPA Calculator, follow these steps:
 1. Clone the repository to your local machine using `git clone https://github.com/RAN-GAN/SKCET-CGPA.git`.
 2. Navigate to the project directory using `cd SKCET-CGPA`.
 3. Install dependencies using `npm install`.
-4. Start the application using `npm start`.
+4. Start the application using `npm run dev`.
 
 ### _Usage_
 
