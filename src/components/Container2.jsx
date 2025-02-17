@@ -69,7 +69,7 @@ function Container2({ dept, setContainerVisible }) {
           We are currently working on adding more departments and subjects.
           <br />
           <br />
-          <a
+          {/* <a
             href="https://forms.gle/dwRe6sEWJJsqUFBKA"
             target="_blank"
             style={{
@@ -78,14 +78,24 @@ function Container2({ dept, setContainerVisible }) {
             }}
           >
             help us by filling out this form!
-          </a>
-          <br />
+          </a>*/}
           <br />
           Meanwhile try using the <b>"CALCULATE YOURSELF"</b> option.
         </h2>
         <button type="button" onClick={() => setContainerVisible(false)}>
           Back
         </button>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSecosqb3nHjCk46PvOhQBpH54mtFHpupVAzWvf8b5tIWeWxLA/viewform?embedded=true"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+        >
+          Loading…
+        </iframe>
       </div>
     );
   }
