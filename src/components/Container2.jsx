@@ -119,7 +119,7 @@ function Container2({ dept, setContainerVisible }) {
   if (getData) {
     return (
       <div className="container">
-        <h1 style={{ textAlign: "center" }}>{dept} 2'nd Semester</h1>
+        <h1 style={{ textAlign: "center" }}>{dept} subject</h1>
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
           {Object.keys(departmentSubjects).map((subject, index) => (

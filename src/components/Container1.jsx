@@ -60,7 +60,7 @@ function Container1({ dept, setContainerVisible }) {
       "Oral and Written Communication Skills": 3,
       "Networking and Communication": 4,
       "Heritage of Tamils": 1,
-      "Mandatory Course I (Induction Programme)": 0
+      "Mandatory Course I (Induction Programme)": 0,
     },
     // IT: {
     //   "Mathematics II": 4,
@@ -151,7 +151,7 @@ function Container1({ dept, setContainerVisible }) {
   if (getData) {
     return (
       <div className="container">
-        <h1 style={{ textAlign: "center" }}>{dept} 2'nd Semester</h1>
+        <h1 style={{ textAlign: "center" }}>{dept} subjects</h1>
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
           {Object.keys(departmentSubjects).map((subject, index) => (
