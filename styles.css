@@ -96,40 +96,41 @@ select option {
 .back {
   margin-bottom: 2%;
 }
-
 footer {
-  background-color: #2178c5;
-  padding: 20px;
-  text-align: center;
-  margin-top: 50px;
-  position: relative;
+  background-color: rgb(33, 120, 197);
+  color: white;
+  padding: 20px 0;
+  position: fixed;
   bottom: 0;
-  width: auto;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 80px; /* Define fixed height */
+  z-index: 1000; /* Ensure footer stays on top */
 }
 
 footer div {
-  display: inline-block;
-  margin: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: block;
 }
 
 footer h4 {
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
 }
 
 footer a {
-  color: #333;
+  color: #fff;
   text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: #00a8e8;
 }
-@media (max-width: 500px) {
-  .rcon {
-    width: 85vw;
-  }
-}
-
 .department {
   margin-top: 6%;
   margin-right: auto;
@@ -144,6 +145,12 @@ footer a:hover {
 }
 
 .departments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.years {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,3 +196,9 @@ button:hover .deptLogo {
   justify-content: center;
   flex-direction: column;
 } */
+
+#disclaimer {
+  text-align: center;
+  margin-top: 2%;
+  color: #501a03;
+}

@@ -25,7 +25,7 @@ function ResultContainer({ score, setGetData, mode }) {
         <h3>{score}</h3>
         <br />
         <br />
-        <small>Disclaimer: This does not represent your final SGPA</small>
+        <small id="disclaimer">Disclaimer: This does not represent your final SGPA</small>
         <button className="back" type="button" onClick={handleBack}>
           Back
         </button>

@@ -68,11 +68,11 @@ function Calculate({ setContainerVisible }) {
               {error}
             </p>
           )}
-          <button type="button" onClick={handleSubmit}>
-            Submit
-          </button>
           <button type="button" onClick={() => setContainerVisible(false)}>
             Back
+          </button>
+          <button type="button" onClick={handleSubmit}>
+            Submit
           </button>
         </form>
       </div>
@@ -110,11 +110,11 @@ function Calculate({ setContainerVisible }) {
               </select>
             </div>
           ))}
-          <button type="button" onClick={handleCalculate}>
-            Calculate
-          </button>
           <button type="button" onClick={handleBack}>
             Back
+          </button>
+          <button type="button" onClick={handleCalculate}>
+            Calculate
           </button>
         </form>
       </div>

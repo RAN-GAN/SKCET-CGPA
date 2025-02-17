@@ -1,35 +1,67 @@
 import React, { useState } from "react";
 import ResultContainer from "./ResultContainer";
 
-function Container({ dept, setContainerVisible }) {
+function Container1({ dept, setContainerVisible }) {
   const subjects = {
-    "MTech CSE": {
-      "Discrete Structures": 4,
-      "Operating systems": 3,
-      "Object Oriented Analysis and Design": 3,
-      "Computer Architecture": 3,
-      "Design Thinking Fundamentals": 4,
-      "Java Programming": 3,
-      "Operataing System Lab": 1.5,
+    // "MTech CSE": {
+    //   "Discrete Structures": 4,
+    //   "Operating systems": 3,
+    //   "Object Oriented Analysis and Design": 3,
+    //   "Computer Architecture": 3,
+    //   "Design Thinking Fundamentals": 4,
+    //   "Java Programming": 3,
+    //   "Operataing System Lab": 1.5,
+    // },
+    CSE: {
+      "Mathematics I": 4,
+      "Applied Science ": 4,
+      "C++": 3,
+      "Digital Logic and Design": 4,
+      "Application development Practices": 3,
+      Biology: 3,
+      "Heritage of Tamils": 1,
     },
-    // CSE: {
-    //   "Mathematics II": 4,
-    //   "Applied Science ": 4,
-    //   "Data Structures and Algorithms": 3,
-    //   "Database Management Systems ": 3,
-    //   "Java Programmming": 3,
-    //   "Object Oriented Analysis and Design ": 4,
-    //   "Tamils and Technology": 1,
-    // },
-    // CSY: {
-    //   "Mathematics II": 4,
-    //   "Applied Science ": 4,
-    //   "Data Structures and Algorithms": 3,
-    //   "Database Management Systems ": 3,
-    //   "Object Oriented Programming using Java ": 3,
-    //   "Operating Systems ": 4,
-    //   "Tamils and Technology": 1,
-    // },
+    ECE: {
+      "Problem using C++": 3,
+      "Circuit Theory and Electron Devices": 3,
+      "Digital System Design": 3,
+      "Digital System Design Laboratory": 1,
+      "Oral Written and Communication Skills ": 3,
+      "Application Development Practices ": 3,
+      "Mathematics 1 ": 4,
+      "Engineering Biology ": 3,
+      "Heritage of Tamils ": 1,
+    },
+    MCT: {
+      "Mathematics 1": 4,
+      "Production Technology": 3,
+      "Sensors, Measurements, and Instrumentation": 3,
+      "Problem solving using C++": 3,
+      "Oral and written communication skills": 3,
+      "Production Technology Laboratory": 1,
+      "Computer Aided Drawing Laboratory for Mechatronics": 1,
+      "Heritage of Tamil": 1,
+      "Application Development Practices": 3,
+    },
+    EEE: {
+      "Oral Written and Communication Skills": 3,
+      "Mathematics 1": 4,
+      "Bussiness English and Communication": 4,
+      "Application Development Practices": 3,
+      "Problem Solving using C++": 3,
+      "Bussiness English and Communication Laboratory": 1,
+      "Heritage of Tamils": 1,
+      "Engineering Biology": 3,
+    },
+    CSY: {
+      "Mathematics 1": 4,
+      "Application Development Practices": 3,
+      "Problem Solving using C++": 3,
+      "Oral and Written Communication Skills": 3,
+      "Networking and Communication": 4,
+      "Heritage of Tamils": 1,
+      "Mandatory Course I (Induction Programme)": 0
+    },
     // IT: {
     //   "Mathematics II": 4,
     //   "Applied Science ": 4,
@@ -55,7 +87,7 @@ function Container({ dept, setContainerVisible }) {
         style={{
           display: "flex",
           justifyContent: "flex-start",
-          alignItems: "start",
+          alignItems: "center",
           flexDirection: "column",
           height: "100vh",
         }}
@@ -138,11 +170,11 @@ function Container({ dept, setContainerVisible }) {
               </select>
             </div>
           ))}
-          <button type="button" onClick={handleCalculate}>
-            Calculate
-          </button>
           <button type="button" onClick={() => setContainerVisible(false)}>
             Back
+          </button>
+          <button type="button" onClick={handleCalculate}>
+            Calculate
           </button>
         </form>
       </div>
@@ -152,4 +184,4 @@ function Container({ dept, setContainerVisible }) {
   }
 }
 
-export default Container;
+export default Container1;
