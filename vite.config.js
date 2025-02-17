@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "/SKCET-CGPA/", // Specify your GitHub Pages URL path
+  base: "/SKCET-CGPA/", 
   plugins: [react()],
   build: {
     assetsInlineLimit: 0,
