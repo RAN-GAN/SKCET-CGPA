@@ -62,6 +62,18 @@ function Container1({ dept, setContainerVisible }) {
       "Heritage of Tamils": 1,
       "Mandatory Course I (Induction Programme)": 0,
     },
+    CIVIL: {
+      "Introduction to Civil Engineering": 3,
+      "Mathematics 1": 4,
+      "Fundamentals of Electrical and Electronics Engineering": 3,
+      "Heritage of Tamil": 1,
+      "Oral and Written Communication Skills": 3,
+      "Problem Solving using C++": 3,
+      "Design Thinking and Workshop Practices": 2.5,
+      "Engineering Graphics Laboratory": 1.5,
+      "Fundamentals of Electrical and Electronics Engineering Laboratory": 1,
+      "Induction Program": 0,
+    },
     // IT: {
     //   "Mathematics II": 4,
     //   "Applied Science ": 4,
