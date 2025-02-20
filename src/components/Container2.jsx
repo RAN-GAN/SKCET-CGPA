@@ -158,9 +158,7 @@ function Container2({ dept, setContainerVisible }) {
       </div>
     );
   } else {
-    return (
-      <ResultContainer score={cgpa3} setGetData={setGetData} mode="auto" />
-    );
+    return <ResultContainer score={cgpa} setGetData={setGetData} mode="auto" />;
   }
 }
 
