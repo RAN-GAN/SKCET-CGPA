@@ -3,22 +3,21 @@ import ResultContainer from "./ResultContainer";
 
 function Container1({ dept, setContainerVisible }) {
   const subjects = {
-    // "MTech CSE": {
-    //   "Discrete Structures": 4,
-    //   "Operating systems": 3,
-    //   "Object Oriented Analysis and Design": 3,
-    //   "Computer Architecture": 3,
-    //   "Design Thinking Fundamentals": 4,
-    //   "Java Programming": 3,
-    //   "Operataing System Lab": 1.5,
-    // },
+    "MTech CSE": {
+      "Linear Algebra and Differential Calculus": 4,
+      "Heritage of Tamils ": 1,
+      "Problem Solving using C ": 3,
+      "Business English Communication ": 3,
+      "Engineering Physics": 4,
+      "Engineering Graphics ": 3,
+    },
     CSE: {
       "Mathematics I": 4,
       "Applied Science ": 4,
-      "C++": 3,
+      "Problem Solving using C++ ": 3,
       "Digital Logic and Design": 4,
       "Application development Practices": 3,
-      Biology: 3,
+      "Engineering Biology ": 3,
       "Heritage of Tamils": 1,
     },
     ECE: {
@@ -74,15 +73,15 @@ function Container1({ dept, setContainerVisible }) {
       "Fundamentals of Electrical and Electronics Engineering Laboratory": 1,
       "Induction Program": 0,
     },
-    // IT: {
-    //   "Mathematics II": 4,
-    //   "Applied Science ": 4,
-    //   "Data Structures and Algorithms": 3,
-    //   "Database Management Systems ": 3,
-    //   "Java Programmming": 3,
-    //   "Object Oriented Analysis and Design ": 4,
-    //   "Tamils and Technology": 1,
-    // },
+    IT: {
+      "Mathematics I": 4,
+      "Applied Science ": 4,
+      "Problem Solving using C++ ": 3,
+      "Digital Logic and Design": 4,
+      "Application development Practices": 3,
+      "Engineering Biology ": 3,
+      "Heritage of Tamils": 1,
+    },
     // CSBS: {
     //   "Linear Algebra ": 4,
     //   "Business Communication and Value Science II ": 3,
