@@ -82,6 +82,15 @@ function Container1({ dept, setContainerVisible }) {
       "Engineering Biology ": 3,
       "Heritage of Tamils": 1,
     },
+    MECH: {
+      "Mathematics 1": 4,
+      "Fundamentals of Electrical and Electronics Engineering": 3,
+      "Fundamentals of Electrical and Electronics Engineering Laboratory": 1,
+      "Engineering Drawing": 3,
+      "Problem Solving using C++": 3,
+      "Oral and Written Communication Skills": 3,
+      "Heritage of Tamil": 1,
+    },
     // CSBS: {
     //   "Linear Algebra ": 4,
     //   "Business Communication and Value Science II ": 3,
