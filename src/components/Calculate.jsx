@@ -5,7 +5,7 @@ function Calculate({ setContainerVisible }) {
   const [noOfSubjects, setNoOfSubjects] = useState(0);
   const [getData, setGetData] = useState("noOfSubjects");
   const [cgpa, setCgpa] = useState(0);
-  const [error, setError] = useState(""); // State to handle errors
+  const [error, setError] = useState(""); 
 
   const handleSubmit = () => {
     const subjectsValue = parseInt(
@@ -16,7 +16,7 @@ function Calculate({ setContainerVisible }) {
       setError("Please enter a valid number of subjects greater than 0.");
       return;
     }
-    setError(""); // Clear previous error
+    setError("");
     setNoOfSubjects(subjectsValue);
     setGetData("creditEntry");
   };

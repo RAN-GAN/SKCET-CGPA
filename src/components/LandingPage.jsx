@@ -1,12 +1,11 @@
 import { useState } from "react";
-import Container1 from "./Container1";
-import Container2 from "./Container2";
 import Calculate from "./Calculate";
-
+import { subjectsByYear } from "../data/subjectsData";
+import SubjectCalculator from "./SubjectCalculator";
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState("");
   const [containerVisible, setContainerVisible] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(""); // Fixed typo
+  const [selectedYear, setSelectedYear] = useState("");
 
   const departments = [
     "MTech CSE",
@@ -23,7 +22,7 @@ function LandingPage() {
     "MECH",
   ];
 
-  const years = ["1st Year", "2nd Year"];
+  const years = Object.keys(subjectsByYear);
 
   function handleDeptClick(dept) {
     setSelectedDept(dept);
@@ -37,11 +36,11 @@ function LandingPage() {
   }
 
   function handleYearClick(year) {
-    setSelectedYear(year); // Fix function name typo
+    setSelectedYear(year);
   }
 
   function handleBack() {
-    setSelectedYear(""); //
+    setSelectedYear("");
   }
   if (containerVisible) {
     if (selectedDept === "Yourself") {
@@ -51,16 +50,10 @@ function LandingPage() {
           dept={selectedDept}
         />
       );
-    } else if (selectedYear === "1st Year") {
+    } else if (selectedYear) {
       return (
-        <Container1
-          dept={selectedDept}
-          setContainerVisible={setContainerVisible}
-        />
-      );
-    } else if (selectedYear === "2nd Year") {
-      return (
-        <Container2
+        <SubjectCalculator
+          year={selectedYear}
           dept={selectedDept}
           setContainerVisible={setContainerVisible}
         />
@@ -89,7 +82,7 @@ function LandingPage() {
         {/* Year Selection (Hidden after selection) */}
         {!selectedYear && (
           <div className="year">
-            <h2>Choose your Year</h2>
+            <h2>Choose your current year</h2>
             <div className="years">
               {years.map((year) => (
                 <div className="year" key={year}>
@@ -129,10 +122,15 @@ function LandingPage() {
                   </button>
                 </div>
               ))}
-            <div className="dept">
-            <button className="deptB back" type="button" onClick={handleBack}>
-              Back
-            </button></div>
+              <div className="dept">
+                <button
+                  className="deptB back"
+                  type="button"
+                  onClick={handleBack}
+                >
+                  Back
+                </button>
+              </div>
             </div>
           </div>
         )}

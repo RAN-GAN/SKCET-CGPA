@@ -9,23 +9,54 @@ body {
 }
 
 header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(33, 120, 197);
   padding: 1rem;
-  text-align: center;
+  /* text-align: center; /* Typically not needed for aligning flex items */
   color: white;
 }
 
 .headerText {
   color: #f0f0f0;
-  justify-items: center;
-  text-align: center;
-  margin-top: 0px;
+  /* justify-items: center; /* This is for grid layouts, not for a flex item */
+  text-align: center; /* This centers the text content within the h1 */
+  margin: 0; /* Ensure no vertical margins interfere with flex alignment */
 }
 header img {
   max-width: 100%;
   height: auto;
 }
+.header-form-link {
+  font-weight: bolder;
+  padding: 8px 15px;
+  background-color: #feb41484; /* Example button color */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
 
+.header-form-link:hover {
+  background-color: #feb414; /* Darker shade on hover */
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Align items to the center */
+  }
+
+  .headerText {
+    margin-bottom: 10px; /* Add space below title when stacked */
+  }
+
+  .header-form-link {
+    align-self: center; /* Align link to the start when stacked */
+    /* Or align-self: center; if you prefer it centered below the title */
+  }
+}
 .container {
   display: flex;
   justify-content: center;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function ResultContainer({ score, setGetData, mode }) {
+function ResultContainer({ score, setGetData, mode, onBack }) {
   function handleBack() {
     if (mode === "auto") {
       setGetData(true);
@@ -25,8 +25,10 @@ function ResultContainer({ score, setGetData, mode }) {
         <h3>{score}</h3>
         <br />
         <br />
-        <small id="disclaimer">Disclaimer: This does not represent your final SGPA</small>
-        <button className="back" type="button" onClick={handleBack}>
+        <small id="disclaimer">
+          Disclaimer: This does not represent your final SGPA
+        </small>
+        <button className="back" type="button" onClick={onBack}>
           Back
         </button>
       </div>
