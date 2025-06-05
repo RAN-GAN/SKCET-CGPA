@@ -246,5 +246,5 @@ export const subjectsByYear = {
       "Mandatory Course – III (Environmental Sciences)": 0,
     },
   },
-  "3rd Year": {},
+  // "3rd Year": {},
 };
