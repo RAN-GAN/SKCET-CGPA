@@ -98,10 +98,14 @@ function LandingPage() {
 
         {!selectedYear && (
           <div className="year">
-            <h2>Choose your current year</h2>
+            <h2>Select Year of Study</h2>
             <div className="years">
               {years.map((year) => (
-                <div className="year" key={year}>
+                <div
+                  title="Choose the year you wrote the exam, not your current year."
+                  className="year"
+                  key={year}
+                >
                   <button
                     className="deptB"
                     type="button"
