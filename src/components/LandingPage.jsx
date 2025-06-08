@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Calculate from "./Calculate";
+import GetResult from "./GetResult";
 import { subjectsByYear } from "../data/subjectsData";
 import SubjectCalculator from "./SubjectCalculator";
 function LandingPage() {
@@ -30,8 +31,11 @@ function LandingPage() {
   }
 
   function handleYourselfClick() {
-    console.log("Yourself");
     setSelectedDept("Yourself");
+    setContainerVisible(true);
+  }
+  function handleGetResult() {
+    setSelectedDept("Get Result");
     setContainerVisible(true);
   }
 
@@ -43,7 +47,14 @@ function LandingPage() {
     setSelectedYear("");
   }
   if (containerVisible) {
-    if (selectedDept === "Yourself") {
+    if (selectedDept === "Get Result") {
+      return (
+        <GetResult
+          setContainerVisible={setContainerVisible}
+          dept={selectedDept}
+        />
+      );
+    } else if (selectedDept === "Yourself") {
       return (
         <Calculate
           setContainerVisible={setContainerVisible}
@@ -68,18 +79,23 @@ function LandingPage() {
         <div className="yourself">
           <button className="deptB" type="button" onClick={handleYourselfClick}>
             <div className="LogoNameWrapper">
+              <img className="deptLogo" src={`calculator.png`} alt="yourself" />
+              Calculate Yourself
+            </div>
+          </button>
+          <button className="deptB" type="button" onClick={handleGetResult}>
+            <div className="LogoNameWrapper">
               <img
                 className="deptLogo"
-                src={`calculator.webp`}
-                alt="yourself"
+                src={`notepad.png`}
+                alt="Check Result"
               />
-              Calculate Yourself
+              Check Result
             </div>
           </button>
         </div>
         <h3>Or</h3>
 
-        {/* Year Selection (Hidden after selection) */}
         {!selectedYear && (
           <div className="year">
             <h2>Choose your current year</h2>
@@ -99,7 +115,6 @@ function LandingPage() {
           </div>
         )}
 
-        {/* Show departments after selecting a year */}
         {selectedYear && (
           <div className="depts">
             <h2>Choose your Department</h2>

@@ -1,14 +1,6 @@
 import React from "react";
 
 function ResultContainer({ score, setGetData, mode, onBack }) {
-  function handleBack() {
-    if (mode === "auto") {
-      setGetData(true);
-    } else {
-      setGetData("creditEntry");
-    }
-  }
-
   if (score === undefined || score === null || isNaN(score)) {
     return (
       <div className="container rcon">

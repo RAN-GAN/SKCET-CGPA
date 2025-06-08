@@ -18,7 +18,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
       setDepartmentSubjects(subjects);
       const initialGrades = {};
       Object.keys(subjects).forEach((subject) => {
-        initialGrades[subject] = ""; 
+        initialGrades[subject] = "";
       });
       setGrades(initialGrades);
       setError("");
@@ -57,7 +57,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSecosqb3nHjCk46PvOhQBpH54mtFHpupVAzWvf8b5tIWeWxLA/viewform?embedded=true"
           width="100%"
-          height="80%" 
+          height="80%"
           frameBorder="0"
           marginHeight="0"
           marginWidth="0"
@@ -75,7 +75,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
       ...prevGrades,
       [subject]: value,
     }));
-    setError(""); 
+    setError("");
   };
 
   const handleCalculateSgpa = () => {
@@ -117,7 +117,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
         </h1>
         <h2>SGPA Calculator</h2>
         <form
-          id="sgpaForm"
+          id="sgpaFormS"
           onSubmit={(e) => {
             e.preventDefault();
             handleCalculateSgpa();
@@ -132,7 +132,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
               <br />
               <select
                 className="creditInput"
-                id={`grade-${subject.replace(/\s+/g, "-")}`} 
+                id={`grade-${subject.replace(/\s+/g, "-")}`}
                 name={`grade-${subject.replace(/\s+/g, "-")}`}
                 value={grades[subject]}
                 onChange={(e) => handleGradeChange(subject, e.target.value)}
@@ -161,9 +161,9 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
     return (
       <ResultContainer
         score={cgpa}
-        setGetData={setView} 
+        setGetData={setView}
         mode="auto"
-        onBack={handleBackToInput} 
+        onBack={handleBackToInput}
       />
     );
   }

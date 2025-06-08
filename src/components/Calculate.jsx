@@ -5,7 +5,7 @@ function Calculate({ setContainerVisible }) {
   const [noOfSubjects, setNoOfSubjects] = useState(0);
   const [getData, setGetData] = useState("noOfSubjects");
   const [cgpa, setCgpa] = useState(0);
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     const subjectsValue = parseInt(
@@ -121,7 +121,12 @@ function Calculate({ setContainerVisible }) {
     );
   } else {
     return (
-      <ResultContainer score={cgpa} setGetData={setGetData} mode="yourself" />
+      <ResultContainer
+        score={cgpa}
+        setGetData={setGetData}
+        mode="yourself"
+        onBack={handleBack}
+      />
     );
   }
 }
