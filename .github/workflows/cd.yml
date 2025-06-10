@@ -1,3 +1,10 @@
+name: Deploy on 'deploy' Commit
+
+on:
+  push:
+    branches:
+      - main 
+
 jobs:
   deploy:
     if: startsWith(github.event.head_commit.message, 'deploy')
