@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "latest"
+          node-version: "18"
 
       - name: Install dependencies
         run: npm ci
@@ -25,12 +25,12 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Set GitHub credentials
+      - name: Configure Git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Configure repo to use token
+      - name: Authenticate with GitHub
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
