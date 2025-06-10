@@ -3,12 +3,13 @@ name: Deploy on 'deploy' Commit
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   deploy:
     if: startsWith(github.event.head_commit.message, 'deploy')
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,10 +25,16 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Configure Git identity
+      - name: Set GitHub credentials
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Deploy
+      - name: Configure repo to use token
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
