@@ -7,7 +7,7 @@
 # **SKCET CGPA Calculator**  
 _Description_
 
-The SKCET SGPA Calculator is a web application designed to help students of Sri Krishna College of Engineering and Technology (SKCET) calculate their Semester Grade Point Average (SGPA) for their academic performance. The application is specifically tailored for SKCET students in their 1st semester.
+The SKCET SGPA Calculator is a web application designed to help students of Sri Krishna College of Engineering and Technology (SKCET) calculate their Semester Grade Point Average (SGPA) for their academic performance. The application is specifically tailored for SKCET students in their 1st and 2nd year students.
 
 ### _Installation_
 
