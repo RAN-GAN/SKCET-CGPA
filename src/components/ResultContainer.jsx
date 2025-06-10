@@ -18,7 +18,7 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         <br />
         <br />
         <small id="disclaimer">
-          Disclaimer: This does not represent your final SGPA
+          Disclaimer: This does not represent your final SGPA or CGPA.
         </small>
         <button className="back" type="button" onClick={onBack}>
           Back
