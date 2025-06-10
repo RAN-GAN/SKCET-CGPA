@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist -u 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'",
+    "deploy": "gh-pages -d dist -u github-actions[bot]<github-actions[bot]@users.noreply.github.com>",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
