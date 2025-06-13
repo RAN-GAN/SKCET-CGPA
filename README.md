@@ -41,6 +41,6 @@ Contributions to the SKCET SGPA Calculator are welcome! To contribute, follow th
 5. Push your changes to your forked repository.
 6. Submit a pull request to the main repository.
 
-![Deploy](https://github.com/RAN-GAN/SKCET-CGPA/actions/workflows/deploy.yml/badge.svg)
+![Deploy](https://github.com/RAN-GAN/SKCET-CGPA/actions/workflows/cd.yml/badge.svg)
 
 [1]: https://ran-gan.github.io/SKCET-CGPA/
