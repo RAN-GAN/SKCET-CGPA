@@ -25,3 +25,4 @@ dist-ssr
 TODO.txt
 /backend
 .env
+.env.production
