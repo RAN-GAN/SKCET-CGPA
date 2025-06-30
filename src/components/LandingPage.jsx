@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Calculate from "./Calculate";
 import GetResult from "./GetResult";
+import StudentResult from "./StudentResult";
 import { subjectsByYear } from "../data/subjectsData";
 import SubjectCalculator from "./SubjectCalculator";
 function LandingPage() {
@@ -38,6 +39,10 @@ function LandingPage() {
     setSelectedDept("Get Result");
     setContainerVisible(true);
   }
+  function handleStudentUpdate() {
+    setSelectedDept("student update");
+    setContainerVisible(true);
+  }
 
   function handleYearClick(year) {
     setSelectedYear(year);
@@ -50,6 +55,13 @@ function LandingPage() {
     if (selectedDept === "Get Result") {
       return (
         <GetResult
+          setContainerVisible={setContainerVisible}
+          dept={selectedDept}
+        />
+      );
+    } else if (selectedDept === "student update"    ) {
+      return (
+        <StudentResult
           setContainerVisible={setContainerVisible}
           dept={selectedDept}
         />
@@ -76,7 +88,7 @@ function LandingPage() {
     <div>
       <div className="department">
         <h2>Calculate Yourself</h2>
-        <div className="yourself">
+        <div className="yourself years">
           <button className="deptB" type="button" onClick={handleYourselfClick}>
             <div className="LogoNameWrapper">
               <img className="deptLogo" src={`calculator.png`} alt="yourself" />
@@ -91,6 +103,16 @@ function LandingPage() {
                 alt="Check Result"
               />
               Check Result
+            </div>
+          </button>
+          <button className="deptB" type="button" onClick={handleStudentUpdate}>
+            <div className="LogoNameWrapper">
+              <img
+                className="deptLogo"
+                src={`notepad.png`}
+                alt="subscribe to result"
+              />
+              Subscribe to results
             </div>
           </button>
         </div>

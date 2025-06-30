@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function GetResult({ setContainerVisible }) {
+function StudentResult({ setContainerVisible }) {
   const BASE_URL = import.meta.env.VITE_BASE_API;
   const [roll, setRoll] = useState(null);
   const [dob, setDob] = useState(null);
@@ -20,35 +20,60 @@ function GetResult({ setContainerVisible }) {
 
   async function fetchResult() {
     setLoading(true);
-    const response = await fetch(`${BASE_URL}/api/getResult`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ roll: roll, dob: dob }),
-    });
+    setError(null);
+    setResult(null);
+
+    // Convert date format only when sending to API
+    let apiDob = dob;
+    if (dob && dob.includes("-")) {
+      const [year, month, day] = dob.split("-");
+      apiDob = `${month}/${day}/${year}`;
+    }
+
+    try {
+      const response = await fetch(`${BASE_URL}/api/addRollnumbertoVenum`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ roll: roll, dob: apiDob }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(
+          data.message || "Something went wrong. Please try again later."
+        );
+        setLoading(false);
+        return;
+      }
+
+      // Check if the response has the expected structure
+      if (data.message && data.student) {
+        setResult({
+          message: data.message,
+          student: data.student,
+        });
+      } else {
+        setError("Unexpected response format. Please try again later.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again later.");
+    }
+
     setLoading(false);
-    if (!response.ok) {
-      setError("Something went wrong. Please try again later.");
-    }
-    const data = await response.json();
-    if (!data.result) {
-      setError("Invalid credentials or the result hasn't been published yet.");
-    }
-    setResult(data.result);
   }
 
   function handleRollChange(e) {
     setRoll(e.target.value);
   }
   function handleDobChange(e) {
-    console.log("chan");
     setDob(e.target.value);
   }
 
   function handleSumbit() {
     setDetailsAvailable(true);
-    console.log(roll, dob);
     fetchResult();
   }
   if (loading) {
@@ -63,18 +88,12 @@ function GetResult({ setContainerVisible }) {
     return (
       <div className="container" style={{ fontSize: "20px" }}>
         <br />
-        <h2>Get your Results here!</h2>
+        <h2>Get your Results directly to your mail!</h2>
         <div id="sgpaForm">
           <label htmlFor="Roll">Enter Your Roll Number</label>
-          <input type="text" required onChange={handleRollChange} />
+          <input type="text" onChange={handleRollChange} />
           <label htmlFor="dob">Enter Your Date Of Birth</label>
-          <input
-            type="date"
-            required
-            name="dob"
-            id="dob"
-            onChange={handleDobChange}
-          />
+          <input type="date" name="dob" id="dob" onChange={handleDobChange} />
           <button type="button" onClick={() => setContainerVisible(false)}>
             Back
           </button>
@@ -125,7 +144,7 @@ function GetResult({ setContainerVisible }) {
     return (
       <div className="container" style={{ fontSize: "20px" }}>
         <br />
-        <h2> Here you go...</h2>
+        <h2>✅ Subscribed Successfully!</h2>
         <div id="sgpaForm">
           <div
             style={{
@@ -139,20 +158,36 @@ function GetResult({ setContainerVisible }) {
               maxWidth: "420px",
               margin: "0 10px 18px 10px",
               textAlign: "center",
-            }}
+            }}  
           >
-            <p
-              style={{ margin: 0, whiteSpace: "pre-line" }}
-              dangerouslySetInnerHTML={{
-                __html: result
-                  .replace(/\n/g, "<br />")
-                  .replace(/\*(.*?)\*/g, "<b>$1</b>"), // bold for *text*
-              }}
-            />
+            <p style={{ fontWeight: "bold", marginBottom: "10px" }}>
+              {result.message}
+            </p>
+            <p style={{ margin: "5px 0", fontSize: "0.9em" }}>
+              📧 Roll Number: <strong>{result.student.roll}</strong>
+            </p>
+            <p style={{ margin: "5px 0", fontSize: "0.9em" }}>
+              📅 DOB: {result.student.dob}
+            </p>
+            <p style={{ margin: "10px 0 0 0", fontSize: "0.95em" }}>
+              You will receive results directly in your email!
+            </p>
           </div>
           <button
             type="button"
             onClick={() => setContainerVisible(false)}
+            style={{
+              background: "#3a6ea5",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              padding: "10px 22px",
+              fontSize: "1em",
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(33,120,197,0.10)",
+              marginTop: "8px",
+              transition: "background 0.2s",
+            }}
             onMouseOver={(e) => (e.target.style.background = "#245080")}
             onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
           >
@@ -163,4 +198,4 @@ function GetResult({ setContainerVisible }) {
     );
   }
 }
-export default GetResult;
+export default StudentResult;
