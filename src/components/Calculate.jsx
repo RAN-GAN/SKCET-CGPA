@@ -51,7 +51,7 @@ function Calculate({ setContainerVisible }) {
         <form id="sgpaForm">
           <label htmlFor="subjects">Number of Subjects: </label>
           <br />
-          <input type="number" id="subjects" name="subjects" min="1" />
+          <input required type="number" id="subjects" name="subjects" min="1" />
           {error && (
             <p
               style={{
@@ -89,6 +89,7 @@ function Calculate({ setContainerVisible }) {
               </label>
               <br />
               <input
+                required
                 type="number"
                 id={`credit${index + 1}`}
                 name={`credit${index + 1}`}

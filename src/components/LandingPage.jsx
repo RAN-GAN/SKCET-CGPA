@@ -59,7 +59,7 @@ function LandingPage() {
           dept={selectedDept}
         />
       );
-    } else if (selectedDept === "student update"    ) {
+    } else if (selectedDept === "student update") {
       return (
         <StudentResult
           setContainerVisible={setContainerVisible}

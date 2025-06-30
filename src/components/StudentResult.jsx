@@ -12,8 +12,8 @@ function StudentResult({ setContainerVisible }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDotCount((prev) => (prev + 1) % 4); // 0 to 3
-    }, 500); // update every 500ms
+      setDotCount((prev) => (prev + 1) % 4);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
@@ -23,7 +23,6 @@ function StudentResult({ setContainerVisible }) {
     setError(null);
     setResult(null);
 
-    // Convert date format only when sending to API
     let apiDob = dob;
     if (dob && dob.includes("-")) {
       const [year, month, day] = dob.split("-");
@@ -49,7 +48,6 @@ function StudentResult({ setContainerVisible }) {
         return;
       }
 
-      // Check if the response has the expected structure
       if (data.message && data.student) {
         setResult({
           message: data.message,
@@ -78,7 +76,10 @@ function StudentResult({ setContainerVisible }) {
   }
   if (loading) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
+      <div
+        className="container"
+        style={{ fontSize: "18px", textAlign: "center", padding: "20px" }}
+      >
         <br />
         <h2>Please Wait{".".repeat(dotCount)}</h2>
       </div>
@@ -91,9 +92,15 @@ function StudentResult({ setContainerVisible }) {
         <h2>Get your Results directly to your mail!</h2>
         <div id="sgpaForm">
           <label htmlFor="Roll">Enter Your Roll Number</label>
-          <input type="text" onChange={handleRollChange} />
+          <input required type="text" onChange={handleRollChange} />
           <label htmlFor="dob">Enter Your Date Of Birth</label>
-          <input type="date" name="dob" id="dob" onChange={handleDobChange} />
+          <input
+            required
+            type="date"
+            name="dob"
+            id="dob"
+            onChange={handleDobChange}
+          />
           <button type="button" onClick={() => setContainerVisible(false)}>
             Back
           </button>
@@ -106,33 +113,47 @@ function StudentResult({ setContainerVisible }) {
   }
   if (error) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
+      <div
+        className="container"
+        style={{
+          fontSize: "18px",
+          maxWidth: "480px",
+          margin: "0 auto",
+          padding: "20px",
+        }}
+      >
         <br />
-        <h2>⚠️ Oops! We ran into an issue.</h2>
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+          ⚠️ Oops! We ran into an issue.
+        </h2>
         <div id="sgpaForm">
           <div
             style={{
-              background: " #6b9edd 80%",
-              borderRadius: "12px",
-              padding: "20px 24px",
-              boxShadow: "0 4px 16px rgba(33, 120, 197, 0.15)",
-              color: "#fff",
+              background: "#fee2e2",
+              borderRadius: "8px",
+              padding: "16px",
+              color: "#b91c1c",
+              border: "1px solid #fca5a5",
               marginBottom: "18px",
-              border: "1.5px solid #3a6ea5",
-              maxWidth: "420px",
-              margin: "0 10px 18px 10px",
               textAlign: "center",
             }}
           >
-            <p style={{ margin: 0, color: "rgba(255, 216, 216, 0.8)" }}>
-              {error}
-            </p>
+            <p style={{ margin: 0 }}>{error}</p>
           </div>
           <button
             type="button"
             onClick={() => setContainerVisible(false)}
-            onMouseOver={(e) => (e.target.style.background = "#245080")}
-            onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
+            style={{
+              background: "#1d4ed8",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              padding: "10px 20px",
+              fontSize: "1em",
+              cursor: "pointer",
+            }}
+            onMouseOver={(e) => (e.target.style.background = "#1e40af")}
+            onMouseOut={(e) => (e.target.style.background = "#1d4ed8")}
           >
             Back
           </button>
@@ -142,55 +163,45 @@ function StudentResult({ setContainerVisible }) {
   }
   if (result) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
+      <div
+        className="container"
+        style={{
+          fontSize: "18px",
+          maxWidth: "480px",
+          margin: "0 auto",
+          padding: "20px",
+        }}
+      >
         <br />
-        <h2>✅ Subscribed Successfully!</h2>
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+          ✅ Subscribed Successfully!
+        </h2>
         <div id="sgpaForm">
           <div
             style={{
-              background: " #6b9edd 80%",
-              borderRadius: "12px",
-              padding: "20px 24px",
-              boxShadow: "0 4px 16px rgba(33, 120, 197, 0.15)",
-              color: "#fff",
+              background: "#e0f2fe",
+              borderRadius: "8px",
+              padding: "16px",
+              color: "#0c4a6e",
+              border: "1px solid #bae6fd",
               marginBottom: "18px",
-              border: "1.5px solid #3a6ea5",
-              maxWidth: "420px",
-              margin: "0 10px 18px 10px",
               textAlign: "center",
-            }}  
+            }}
           >
             <p style={{ fontWeight: "bold", marginBottom: "10px" }}>
               {result.message}
             </p>
-            <p style={{ margin: "5px 0", fontSize: "0.9em" }}>
+            <p style={{ margin: "5px 0", fontSize: "0.95em" }}>
               📧 Roll Number: <strong>{result.student.roll}</strong>
             </p>
-            <p style={{ margin: "5px 0", fontSize: "0.9em" }}>
+            <p style={{ margin: "5px 0", fontSize: "0.95em" }}>
               📅 DOB: {result.student.dob}
             </p>
-            <p style={{ margin: "10px 0 0 0", fontSize: "0.95em" }}>
+            <p style={{ margin: "10px 0 0", fontSize: "0.95em" }}>
               You will receive results directly in your email!
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => setContainerVisible(false)}
-            style={{
-              background: "#3a6ea5",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              padding: "10px 22px",
-              fontSize: "1em",
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(33,120,197,0.10)",
-              marginTop: "8px",
-              transition: "background 0.2s",
-            }}
-            onMouseOver={(e) => (e.target.style.background = "#245080")}
-            onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
-          >
+          <button type="button" onClick={() => setContainerVisible(false)}>
             Back
           </button>
         </div>
