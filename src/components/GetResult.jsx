@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import "./GetResult.css";
 
 function GetResult({ setContainerVisible }) {
   const BASE_URL = import.meta.env.VITE_BASE_API;
@@ -121,44 +122,67 @@ function GetResult({ setContainerVisible }) {
       </div>
     );
   }
+  function getGradeColor(grade) {
+    switch (grade) {
+      case "O":
+        return "#4caf50"; // bright green
+      case "A+":
+        return "#8bc34a"; // light green
+      case "A":
+        return "#cddc39"; // lime
+      case "B+":
+        return "#ffc107"; // amber
+      case "B":
+        return "#ff9800"; // orange
+      case "C":
+        return "#f44336"; // red
+      default:
+        return "#6c757d"; // gray
+    }
+  }
+
   if (result) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
+      <div className="container" style={{ fontSize: "18px" }}>
         <br />
-        <h2> Here you go...</h2>
-        <div id="sgpaForm">
-          <div
-            style={{
-              background: " #6b9edd 80%",
-              borderRadius: "12px",
-              padding: "20px 24px",
-              boxShadow: "0 4px 16px rgba(33, 120, 197, 0.15)",
-              color: "#fff",
-              marginBottom: "18px",
-              border: "1.5px solid #3a6ea5",
-              maxWidth: "420px",
-              margin: "0 10px 18px 10px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{ margin: 0, whiteSpace: "pre-line" }}
-              dangerouslySetInnerHTML={{
-                __html: result
-                  .replace(/\n/g, "<br />")
-                  .replace(/\*(.*?)\*/g, "<b>$1</b>"), // bold for *text*
-              }}
-            />
-          </div>
-          <button
-            type="button"
-            onClick={() => setContainerVisible(false)}
-            onMouseOver={(e) => (e.target.style.background = "#245080")}
-            onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
-          >
-            Back
-          </button>
+        <h2>🎓 Results for {result.roll}</h2>
+
+        <div className="student-info">
+          <p style={{ margin: 0, fontSize: "1.1em", fontWeight: 500 }}>
+            Semester {result.subjects[0]?.semester} Results
+          </p>
         </div>
+
+        <div className="cards-container">
+          {result.subjects.map((sub) => (
+            <div key={sub.sno} className="result-card">
+              <h4>
+                {sub.subject_code}{" "}
+                <span style={{ fontWeight: 400 }}>({sub.sno})</span>
+              </h4>
+              <p>{sub.subject_title}</p>
+              <div className="result-meta">
+                <span
+                  className="grade-badge"
+                  style={{ backgroundColor: getGradeColor(sub.grade) }}
+                >
+                  {sub.grade}
+                </span>
+                <span className={sub.result === "PASS" ? "pass" : "fail"}>
+                  {sub.result === "PASS" ? "✅ PASS" : "❌ FAIL"}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setContainerVisible(false)}
+          className="back-button"
+        >
+          Back
+        </button>
       </div>
     );
   }

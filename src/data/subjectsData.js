@@ -84,13 +84,13 @@ export const subjectsByYear = {
     },
     EEE: {
       "Measuring Instruments and Smart Sensors": 3,
-      "Electronic Devices and Integrated Circuits": 3,
+      "Electronic Devices and Circuits": 3,
       "Mathematics II": 4,
       "Tamils and Technology": 1,
       "Oral and Written Communication Skills": 3,
       "Database Management Systems": 3,
       "Java Programming": 3,
-      "Electronic Devices and Integrated Circuits Laboratory": 1,
+      "Electronic Devices and Circuits Laboratory": 1,
       "Mandatory Course II (Environmental Sciences)": 0,
     },
     IT: {
