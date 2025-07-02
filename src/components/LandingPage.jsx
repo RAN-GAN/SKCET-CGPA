@@ -105,7 +105,7 @@ function LandingPage() {
               Check Result
             </div>
           </button>
-          <button className="deptB" type="button" onClick={handleStudentUpdate}>
+          {/* <button className="deptB" type="button" onClick={handleStudentUpdate}>
             <div className="LogoNameWrapper">
               <img
                 className="deptLogo"
@@ -114,7 +114,7 @@ function LandingPage() {
               />
               Subscribe to results
             </div>
-          </button>
+          </button> */}
         </div>
         <h3>Or</h3>
 
