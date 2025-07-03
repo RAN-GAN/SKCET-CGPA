@@ -21,22 +21,65 @@ function GetResult({ setContainerVisible }) {
 
   async function fetchResult() {
     setLoading(true);
-    const response = await fetch(`${BASE_URL}/api/getResult`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ roll: roll, dob: dob }),
-    });
+    setError(null);
+    setResult(null);
+
+    try {
+      const response = await fetch(`${BASE_URL}/api/getResult`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ roll: roll, dob: dob }),
+      });
+
+      const data = await response.json();
+
+      // Check if HTTP request failed
+      if (!response.ok) {
+        setError(
+          data.message || "Something went wrong. Please try again later."
+        );
+        setLoading(false);
+        return;
+      }
+
+      // Check if API returned success: false
+      if (!data.success) {
+        setError(data.message || "Request failed. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      // Check if result object indicates failure
+      if (data.result && !data.result.success) {
+        setError(
+          data.result.error || "Invalid credentials or result not found."
+        );
+        setLoading(false);
+        return;
+      }
+
+      // Check if result exists and has subjects
+      if (
+        !data.result ||
+        !data.result.subjects ||
+        data.result.subjects.length === 0
+      ) {
+        setError(
+          "No results found. Please check your credentials or try again later."
+        );
+        setLoading(false);
+        return;
+      }
+
+      // Success case
+      setResult(data.result);
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+    }
+
     setLoading(false);
-    if (!response.ok) {
-      setError("Something went wrong. Please try again later.");
-    }
-    const data = await response.json();
-    if (!data.result) {
-      setError("Invalid credentials or the result hasn't been published yet.");
-    }
-    setResult(data.result);
   }
 
   function handleRollChange(e) {
