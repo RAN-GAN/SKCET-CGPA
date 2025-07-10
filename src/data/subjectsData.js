@@ -134,7 +134,7 @@ export const subjectsByYear = {
       "Database Management System": 3,
       "Advanced Data Structures and Algorithms": 4,
       "Advanced Java Programming": 3,
-      "Microcontrollers and Embedded Systems Laboratory": 1.5,
+      "MICROCONTROLLERS AND EMBEDDED SYSTEMS LABORATORY": 1.5,
     },
     AIDS: {
       "Data Engineering": 4,

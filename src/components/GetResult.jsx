@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { subjectsByYear } from "../data/subjectsData";
 // import "./GetResult.css";
 
 function GetResult({ setContainerVisible }) {
@@ -13,11 +14,122 @@ function GetResult({ setContainerVisible }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDotCount((prev) => (prev + 1) % 4); // 0 to 3
-    }, 500); // update every 500ms
-
+      setDotCount((prev) => (prev + 1) % 4);
+    }, 500);
     return () => clearInterval(interval);
   }, []);
+
+  // Helper function to get department from roll number
+  function getDepartmentFromRoll(roll) {
+    if (!roll) return null;
+    const rollStr = roll.toLowerCase();
+    if (rollStr.includes("cs")) return "CSE";
+    if (rollStr.includes("ai")) return "AIDS";
+    if (rollStr.includes("cv")) return "CIVIL";
+    if (rollStr.includes("cd")) return "CSD";
+    if (rollStr.includes("cy")) return "CSY";
+    if (rollStr.includes("cb")) return "CSBS";
+    if (rollStr.includes("ec")) return "ECE";
+    if (rollStr.includes("ee")) return "EEE";
+    if (rollStr.includes("it")) return "IT";
+    if (rollStr.includes("mct")) return "MCT";
+    if (rollStr.includes("mc")) return "MECH";
+    if (rollStr.includes("ci")) return "MTech CSE";
+    return null;
+  }
+
+  // Helper function to get year from semester
+  function getYearFromSemester(semester) {
+    const sem = parseInt(semester);
+    if (sem <= 2) return "1st Year";
+    if (sem <= 4) return "2nd Year";
+    if (sem <= 6) return "3rd Year";
+    return "4th Year";
+  }
+
+  // Helper function to calculate SGPA
+  function calculateSGPA(subjects, department, semester) {
+    const year = getYearFromSemester(semester);
+    const dept = getDepartmentFromRoll(department);
+
+    console.log("Debug SGPA Calculation:");
+    console.log("Year:", year, "Department:", dept, "Semester:", semester);
+
+    if (!dept || !subjectsByYear[year] || !subjectsByYear[year][dept]) {
+      console.log("No department data found");
+      return null;
+    }
+
+    const departmentSubjects = subjectsByYear[year][dept];
+    console.log("Available subjects with credits:", departmentSubjects);
+    
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+    let matchedSubjects = [];
+
+    subjects.forEach((subject) => {
+      // Find matching subject in departmentSubjects
+      const matchingSubject = Object.keys(departmentSubjects).find(
+        (deptSub) =>
+          deptSub
+            .toLowerCase()
+            .includes(subject.subject_title.toLowerCase().split(" ")[0]) ||
+          subject.subject_title
+            .toLowerCase()
+            .includes(deptSub.toLowerCase().split(" ")[0])
+      );
+
+      if (matchingSubject) {
+        const credits = departmentSubjects[matchingSubject];
+        const gradePoints = getGradePoints(subject.grade);
+
+        if (gradePoints !== null && credits > 0) {
+          totalGradePoints += gradePoints * credits;
+          totalCredits += credits;
+          
+          matchedSubjects.push({
+            original: subject.subject_title,
+            matched: matchingSubject,
+            grade: subject.grade,
+            gradePoints,
+            credits,
+            contribution: gradePoints * credits
+          });
+        }
+      } else {
+        console.log("No match found for:", subject.subject_title);
+      }
+    });
+
+    console.log("Matched subjects:", matchedSubjects);
+    console.log("Total grade points:", totalGradePoints);
+    console.log("Total credits:", totalCredits);
+    
+    const sgpa = totalCredits > 0 ? Math.round((totalGradePoints / totalCredits) * 100) / 100 : null;
+    console.log("Calculated SGPA:", sgpa);
+    
+    return sgpa;
+  }
+
+  // Helper function to convert grade to points
+  function getGradePoints(grade) {
+    switch (grade) {
+      case "O":
+        return 10;
+      case "A+":
+        return 9;
+      case "A":
+        return 8;
+      case "B+":
+        return 7;
+      case "B":
+        return 6;
+      case "C":
+        return 5;
+      default:
+        return 0;
+    }
+  }
 
   async function fetchResult() {
     setLoading(true);
@@ -35,7 +147,6 @@ function GetResult({ setContainerVisible }) {
 
       const data = await response.json();
 
-      // Check if HTTP request failed
       if (!response.ok) {
         setError(
           data.message || "Something went wrong. Please try again later."
@@ -44,14 +155,12 @@ function GetResult({ setContainerVisible }) {
         return;
       }
 
-      // Check if API returned success: false
       if (!data.success) {
         setError(data.message || "Request failed. Please try again.");
         setLoading(false);
         return;
       }
 
-      // Check if result object indicates failure
       if (data.result && !data.result.success) {
         setError(
           data.result.error || "Invalid credentials or result not found."
@@ -60,7 +169,6 @@ function GetResult({ setContainerVisible }) {
         return;
       }
 
-      // Check if result exists and has subjects
       if (
         !data.result ||
         !data.result.subjects ||
@@ -73,7 +181,17 @@ function GetResult({ setContainerVisible }) {
         return;
       }
 
-      // Success case
+      // Calculate SGPA for semesters 2 and 4
+      const semester = data.result.subjects[0]?.semester;
+      if (semester === "2" || semester === "4") {
+        const sgpa = calculateSGPA(
+          data.result.subjects,
+          data.result.roll,
+          semester
+        );
+        data.result.calculatedSGPA = sgpa;
+      }
+
       setResult(data.result);
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
@@ -85,16 +203,35 @@ function GetResult({ setContainerVisible }) {
   function handleRollChange(e) {
     setRoll(e.target.value);
   }
+
   function handleDobChange(e) {
-    console.log("chan");
     setDob(e.target.value);
   }
 
   function handleSumbit() {
     setDetailsAvailable(true);
-    console.log(roll, dob);
     fetchResult();
   }
+
+  function getGradeColor(grade) {
+    switch (grade) {
+      case "O":
+        return "#4caf50";
+      case "A+":
+        return "#8bc34a";
+      case "A":
+        return "#cddc39";
+      case "B+":
+        return "#ffc107";
+      case "B":
+        return "#ff9800";
+      case "C":
+        return "#f44336";
+      default:
+        return "#6c757d";
+    }
+  }
+
   if (loading) {
     return (
       <div className="container" style={{ fontSize: "20px" }}>
@@ -103,6 +240,7 @@ function GetResult({ setContainerVisible }) {
       </div>
     );
   }
+
   if (!detailsAvailable) {
     return (
       <div className="container" style={{ fontSize: "20px" }}>
@@ -129,6 +267,7 @@ function GetResult({ setContainerVisible }) {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className="container" style={{ fontSize: "20px" }}>
@@ -137,7 +276,7 @@ function GetResult({ setContainerVisible }) {
         <div id="sgpaForm">
           <div
             style={{
-              background: " #6b9edd 80%",
+              background: "linear-gradient(135deg, #6b9edd 80%, #3a6ea5 100%)",
               borderRadius: "12px",
               padding: "20px 24px",
               boxShadow: "0 4px 16px rgba(33, 120, 197, 0.15)",
@@ -145,7 +284,7 @@ function GetResult({ setContainerVisible }) {
               marginBottom: "18px",
               border: "1.5px solid #3a6ea5",
               maxWidth: "420px",
-              margin: "0 10px 18px 10px",
+              margin: "0 auto 18px auto",
               textAlign: "center",
             }}
           >
@@ -156,6 +295,14 @@ function GetResult({ setContainerVisible }) {
           <button
             type="button"
             onClick={() => setContainerVisible(false)}
+            style={{
+              background: "#3a6ea5",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              padding: "10px 22px",
+              cursor: "pointer",
+            }}
             onMouseOver={(e) => (e.target.style.background = "#245080")}
             onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
           >
@@ -165,26 +312,12 @@ function GetResult({ setContainerVisible }) {
       </div>
     );
   }
-  function getGradeColor(grade) {
-    switch (grade) {
-      case "O":
-        return "#4caf50"; // bright green
-      case "A+":
-        return "#8bc34a"; // light green
-      case "A":
-        return "#cddc39"; // lime
-      case "B+":
-        return "#ffc107"; // amber
-      case "B":
-        return "#ff9800"; // orange
-      case "C":
-        return "#f44336"; // red
-      default:
-        return "#6c757d"; // gray
-    }
-  }
 
   if (result) {
+    const semester = result.subjects[0]?.semester;
+    const showSGPA =
+      (semester === "2" || semester === "4") && result.calculatedSGPA;
+
     return (
       <div className="container" style={{ fontSize: "18px" }}>
         <br />
@@ -192,7 +325,19 @@ function GetResult({ setContainerVisible }) {
 
         <div className="student-info">
           <p style={{ margin: 0, fontSize: "1.1em", fontWeight: 500 }}>
-            Semester {result.subjects[0]?.semester} Results
+            Semester {semester} Results
+            {showSGPA && (
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "1.2em",
+                  fontWeight: "bold",
+                  marginTop: "8px",
+                }}
+              >
+                📊 SGPA: {result.calculatedSGPA}
+              </span>
+            )}
           </p>
         </div>
 
@@ -230,4 +375,5 @@ function GetResult({ setContainerVisible }) {
     );
   }
 }
+
 export default GetResult;

@@ -145,7 +145,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
                 <option value="7">B+</option>
                 <option value="6">B</option>
                 <option value="5">C</option>
-                <option value="0">U (RA)</option> {/* Clarified U grade */}
+                <option value="0">U (RA)</option> 
               </select>
             </div>
           ))}
