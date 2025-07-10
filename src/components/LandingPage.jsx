@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Calculate from "./Calculate";
-import GetResult from "./GetResult";
-import StudentResult from "./StudentResult";
 import { subjectsByYear } from "../data/subjectsData";
 import SubjectCalculator from "./SubjectCalculator";
 function LandingPage() {
