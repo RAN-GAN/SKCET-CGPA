@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--gray-50);
   color: var(--gray-900);
   line-height: 1.6;
@@ -38,7 +38,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .headerText {
@@ -65,7 +65,7 @@ header img {
 .header-form-link:hover {
   background: var(--amber-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Container */
@@ -107,7 +107,7 @@ h3 {
   padding: 2rem;
   margin: 2rem auto;
   max-width: 600px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .department h2 {
@@ -168,7 +168,7 @@ button:hover {
   border-color: var(--blue-primary);
   color: var(--white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:active {
@@ -224,7 +224,7 @@ button:hover .deptLogo {
 
 .result-card:hover {
   border-color: var(--blue-light);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
@@ -281,33 +281,33 @@ button:hover .deptLogo {
     gap: 1rem;
     text-align: center;
   }
-  
+
   .headerText {
     font-size: 1rem;
   }
-  
+
   h1 {
     font-size: 1.5rem;
   }
-  
+
   h2 {
     font-size: 1.25rem;
   }
-  
+
   h3 {
     font-size: 2.25rem;
   }
-  
+
   .department,
   .rcon {
     padding: 1.5rem;
   }
-  
+
   button {
     width: 100%;
     margin: 0.25rem 0;
   }
-  
+
   .cards-container {
     grid-template-columns: 1fr;
   }
