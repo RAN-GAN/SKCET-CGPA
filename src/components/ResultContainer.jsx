@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function ResultContainer({ score, setGetData, mode, onBack }) {
+  const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
+
+  useEffect(() => {
+    if (score !== undefined && score !== null && !isNaN(score)) {
+      fetch(`${API_URL}/up`, { method: "GET" }).catch((err) =>
+        console.error("Failed to increment count:", err)
+      );
+    }
+  }, [score]);
+
   if (score === undefined || score === null || isNaN(score)) {
     return (
       <div className="container rcon">

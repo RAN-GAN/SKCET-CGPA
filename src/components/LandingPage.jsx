@@ -2,14 +2,19 @@ import { useState } from "react";
 import Calculate from "./Calculate";
 import { subjectsByYear } from "../data/subjectsData";
 import SubjectCalculator from "./SubjectCalculator";
+
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState("");
   const [containerVisible, setContainerVisible] = useState(false);
   const [selectedYear, setSelectedYear] = useState("");
+  const [availableDepartmentsByYear, setAvailableDepartmentsByYear] = useState(
+    {}
+  );
 
-  const departments = [
+  let departments = [
     "MTech CSE",
     "AIDS",
+    "AIML",
     "CIVIL",
     "CSBS",
     "CSD",
@@ -17,6 +22,7 @@ function LandingPage() {
     "CSY",
     "ECE",
     "EEE",
+    "IOT",
     "IT",
     "MCT",
     "MECH",
@@ -33,6 +39,7 @@ function LandingPage() {
     setSelectedDept("Yourself");
     setContainerVisible(true);
   }
+
   function handleGetResult() {
     setSelectedDept("Get Result");
     setContainerVisible(true);
@@ -44,6 +51,8 @@ function LandingPage() {
 
   function handleYearClick(year) {
     setSelectedYear(year);
+    const deptsForYear = subjectsByYear[year];
+    setAvailableDepartmentsByYear(deptsForYear);
   }
 
   function handleBack() {
@@ -143,7 +152,7 @@ function LandingPage() {
           <div className="depts">
             <h2>Choose your Department</h2>
             <div className="departments">
-              {departments.map((department) => (
+              {Object.keys(availableDepartmentsByYear).map((department) => (
                 <div className="dept" key={department}>
                   <button
                     className="deptB"
@@ -161,6 +170,8 @@ function LandingPage() {
                   </button>
                 </div>
               ))}
+              <div className="dept break" />
+
               <div className="dept">
                 <button
                   className="deptB back"
