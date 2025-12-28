@@ -12,35 +12,44 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(33, 120, 197);
-  padding: 1rem;
-  /* text-align: center; /* Typically not needed for aligning flex items */
+  background: #2a5298;
+  padding: 1.5rem 2rem;
   color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #feb414;
 }
 
 .headerText {
-  color: #f0f0f0;
-  /* justify-items: center; /* This is for grid layouts, not for a flex item */
-  text-align: center; /* This centers the text content within the h1 */
-  margin: 0; /* Ensure no vertical margins interfere with flex alignment */
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 header img {
   max-width: 100%;
   height: auto;
 }
 .header-form-link {
-  font-weight: bolder;
-  padding: 8px 15px;
-  background-color: #feb41484; /* Example button color */
-  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  background: #ffc947;
+  color: #1e3c72;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
+  border-radius: 25px;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(254, 180, 20, 0.3);
+  border: 2px solid transparent;
 }
 
 .header-form-link:hover {
-  background-color: #feb414; /* Darker shade on hover */
+  background: #feb414;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(254, 180, 20, 0.4);
+  border-color: #ffffff;
 }
 @media (max-width: 600px) {
   header {
@@ -66,16 +75,16 @@ header img {
 }
 h1 {
   margin-bottom: 0px;
-  color: #034150;
+  color: #2a5298;
 }
 h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #034150;
+  color: #2a5298;
 }
 
 h3 {
-  color: #034150;
+  color: #2a5298;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -117,21 +126,31 @@ select option {
 }
 
 .rcon {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  max-width: 300px;
-  background-color: rgba(75, 160, 235, 0.545);
-  width: 90%;
-  border-radius: 20px;
-  box-shadow: 2px 2px 2px rgba(117, 190, 238, 0.477);
-  padding: 5%;
-}
-.rcon h1 {
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 900px;
+  background: rgba(199, 208, 238, 0.432);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   text-align: center;
 }
+
+.rcon h1 {
+  color: #2a5298;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.sgpa-result {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2a5298;
+  margin: 1rem 0;
+}
+
 .back {
-  margin-bottom: 2%;
+  margin-top: 1.5rem;
 }
 
 footer {
@@ -176,9 +195,9 @@ footer a:hover {
   width: 80%;
   max-width: 600px;
   height: auto;
-  background-color: rgba(75, 160, 235, 0.545);
-  border-radius: 20px;
-  box-shadow: 2px 2px 2px rgba(117, 190, 238, 0.477);
+  background-color: rgba(105, 147, 226, 0.199);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 5%;
 }
 
@@ -213,7 +232,7 @@ button {
   border-radius: 3px;
 }
 button:hover {
-  background-color: #016bbb;
+  background-color: #2a5298;
   color: white;
 }
 button:hover .deptLogo {
@@ -256,7 +275,7 @@ button:hover .deptLogo {
 /* get result */
 /* outer container to center & pad everything */
 .container {
-  max-width: 800px;
+  max-width: 300px;
   margin: 1rem auto;
   padding: 0 16px;
   box-sizing: border-box;
@@ -264,8 +283,8 @@ button:hover .deptLogo {
 
 /* banner with semester info */
 .student-info {
-  background-color: rgb(33, 120, 197);
-  border-radius: 12px;
+  /* background-color: rgb(33, 120, 197); */
+  /* border-radius: 12px; */
   padding: 16px 24px;
   color: #fff;
   text-align: center;
