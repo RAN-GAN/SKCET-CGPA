@@ -137,15 +137,31 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
                 value={grades[subject]}
                 onChange={(e) => handleGradeChange(subject, e.target.value)}
               >
-                <option value="">-Select Grade-</option>{" "}
-                {/* Changed default value */}
-                <option value="10">O</option>
-                <option value="9">A+</option>
-                <option value="8">A</option>
-                <option value="7">B+</option>
-                <option value="6">B</option>
-                <option value="5">C</option>
-                <option value="0">U (RA)</option> 
+                <option value="">-Select Grade-</option>
+                {year === "1st Year" ? (
+                  <>
+                    <option value="10">S</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6.5">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="0">U (RA)</option>
+                    <option value="0">SA</option>
+                    <option value="0">WC</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="0">U (RA)</option>
+                  </>
+                )}
               </select>
             </div>
           ))}
