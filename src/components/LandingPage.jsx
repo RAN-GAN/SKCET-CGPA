@@ -2,13 +2,13 @@ import { useState } from "react";
 import Calculate from "./Calculate";
 import { subjectsByYear } from "../data/subjectsData";
 import SubjectCalculator from "./SubjectCalculator";
-
+import GetResult from "./getResult";
 function LandingPage() {
   const [selectedDept, setSelectedDept] = useState("");
   const [containerVisible, setContainerVisible] = useState(false);
   const [selectedYear, setSelectedYear] = useState("");
   const [availableDepartmentsByYear, setAvailableDepartmentsByYear] = useState(
-    {}
+    {},
   );
 
   let departments = [
@@ -102,7 +102,7 @@ function LandingPage() {
               Calculate Yourself
             </div>
           </button>
-          {/* <button className="deptB" type="button" onClick={handleGetResult}>
+          <button className="deptB" type="button" onClick={handleGetResult}>
             <div className="LogoNameWrapper">
               <img
                 className="deptLogo"
@@ -111,7 +111,7 @@ function LandingPage() {
               />
               Check Result
             </div>
-          </button> */}
+          </button>
           {/* <button className="deptB" type="button" onClick={handleStudentUpdate}>
             <div className="LogoNameWrapper">
               <img
