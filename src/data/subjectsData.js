@@ -131,6 +131,26 @@ export const subjectsByYear = {
       "Mandatory Course – I (Induction Programme)": 0,
     },
   },
+  "2nd Year": {
+    CSE: {
+      "Artifical Intelligence and Its Application": 3,
+      "Algorithm Design Techniques": 4,
+      "Frontend Frameworks": 2,
+      "Operating Systems": 4,
+      "Apllied Statistics Using Python": 4,
+      "Universal Humnan Values": 3,
+      "Data Communication and Networks": 3,
+    },
+    IT: {
+      "Artifical Intelligence and Its Application": 3,
+      "Algorithm Design Techniques": 4,
+      "Frontend Frameworks": 2,
+      "Operating Systems": 4,
+      "Apllied Statistics Using Python": 4,
+      "Universal Humnan Values": 3,
+      "Data Communication and Networks": 3,
+    },
+  },
   "3rd Year": {
     "MTech CSE": {
       "Advanced Server-Side Programming": 4,

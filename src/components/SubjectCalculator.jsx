@@ -26,7 +26,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
     } else {
       setDepartmentSubjects(null);
       setError(
-        "We are currently working on adding more departments and subjects for this semester."
+        "We are currently working on adding more departments and subjects for this semester.",
       );
     }
   }, [year, dept]);
@@ -96,7 +96,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
 
     if (!hasSelectedAtLeastOneGrade || totalCredit === 0) {
       setError(
-        "Please select a grade for at least one subject with valid credits."
+        "Please select a grade for at least one subject with valid credits.",
       );
       return;
     }
