@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { subjectsByYear } from "../data/subjectsData";
 
 function GetResult({ setContainerVisible }) {
+  const audioRef = useRef(null);
   const BASE_URL = import.meta.env.VITE_BASE_API;
   const [roll, setRoll] = useState(null);
   const [dob, setDob] = useState(null);
@@ -17,6 +18,15 @@ function GetResult({ setContainerVisible }) {
     }, 500);
     return () => clearInterval(interval);
   }, []);
+
+  // Play audio if SGPA is less than 7.5
+  useEffect(() => {
+    if (result && result.calculatedSGPA && result.calculatedSGPA < 7.5) {
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+    }
+  }, [result]);
 
   // Helper function to get department from roll number
   function getDepartmentFromRoll(roll) {
@@ -323,6 +333,8 @@ function GetResult({ setContainerVisible }) {
         className="container result-table-container"
         style={{ fontSize: "18px", maxWidth: 800, margin: "0 auto" }}
       >
+        {/* Audio element for SGPA < 7.5 */}
+        <audio ref={audioRef} src="/low-sgpa.mp3" preload="auto" />
         <br />
         <h2>Results for {result.roll}</h2>
         <div style={{ marginBottom: 16 }}>

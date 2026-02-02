@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 
 function Header() {
   const [totalCalculations, setTotalCalculations] = useState(null);
-  const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
+  // const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
+  const API_URL = ""
   const hasFetched = useRef(false);
 
   useEffect(() => {
