@@ -150,6 +150,15 @@ export const subjectsByYear = {
       "Universal Humnan Values": 3,
       "Data Communication and Networks": 3,
     },
+    MCT: {
+      "Universal Human Values": 3,
+      "Basics of Mechatronics Systems": 3,
+      "Signals and Systems": 4,
+      "Microcontrollers and Embedded Systems": 4,
+      "Theory of Machines": 4,
+      "Data Structures": 4,
+      "Idea Lab for Mechatronics": 1,
+    },
   },
   "3rd Year": {
     "MTech CSE": {
