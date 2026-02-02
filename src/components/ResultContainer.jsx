@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 function ResultContainer({ score, setGetData, mode, onBack }) {
-  // const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
-  const API_URL = "";
+  const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
   const audioRef = useRef(null);
 
   useEffect(() => {
