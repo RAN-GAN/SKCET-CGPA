@@ -31,16 +31,18 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
 
   if (score === undefined || score === null || isNaN(score)) {
     return (
-      <div className="container rcon">
+      <div className="container panel rcon">
         <h2>Please fill all the fields</h2>
-        <button className="back" type="button" onClick={handleBack}>
+        <div className="buttons-row">
+          <button className="btn btn-secondary" type="button" onClick={handleBack}>
           Back
-        </button>
+          </button>
+        </div>
       </div>
     );
   } else {
     return (
-      <div className="container rcon">
+      <div className="container panel rcon">
         <h2>Your tentative SGPA is:</h2>
         <h3>{score}</h3>
         <br />
@@ -48,9 +50,11 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         <small id="disclaimer">
           Disclaimer: This does not represent your final SGPA or CGPA.
         </small>
-        <button className="back" type="button" onClick={handleBack}>
-          Back
-        </button>
+        <div className="buttons-row">
+          <button className="btn btn-secondary" type="button" onClick={handleBack}>
+            Back
+          </button>
+        </div>
       </div>
     );
   }

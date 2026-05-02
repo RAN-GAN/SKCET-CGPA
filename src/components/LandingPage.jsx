@@ -92,9 +92,12 @@ function LandingPage() {
   }
 
   return (
-    <div>
-      <div className="department">
+    <div className="landing">
+      <div className="department panel">
         <h2>Calculate Yourself</h2>
+        <p className="section-subtitle">
+          Enter grades manually or fetch your latest result to compute SGPA.
+        </p>
         <div className="yourself years">
           <button className="deptB" type="button" onClick={handleYourselfClick}>
             <div className="LogoNameWrapper">
@@ -123,18 +126,19 @@ function LandingPage() {
             </div>
           </button> */}
         </div>
-        <h3>Or</h3>
+        <div className="section-divider">
+          <span>or</span>
+        </div>
 
         {!selectedYear && (
           <div className="year">
             <h2>Select Year of Study</h2>
+            <p className="section-subtitle">
+              Choose the year you wrote the exam, not your current year.
+            </p>
             <div className="years">
               {years.map((year) => (
-                <div
-                  title="Choose the year you wrote the exam, not your current year."
-                  className="year"
-                  key={year}
-                >
+                <div className="year" key={year}>
                   <button
                     className="deptB"
                     type="button"
@@ -151,6 +155,9 @@ function LandingPage() {
         {selectedYear && (
           <div className="depts">
             <h2>Choose your Department</h2>
+            <p className="section-subtitle">
+              Select your department to load the subject list.
+            </p>
             <div className="departments">
               {Object.keys(availableDepartmentsByYear).map((department) => (
                 <div className="dept" key={department}>

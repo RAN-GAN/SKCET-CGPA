@@ -36,7 +36,9 @@ function App() {
         </p>
       </div>
 
-      <LandingPage />
+      <main className="app-main">
+        <LandingPage />
+      </main>
       {/* <Footer></Footer> */}
     </>
   );

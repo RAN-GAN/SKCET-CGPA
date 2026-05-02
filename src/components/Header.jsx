@@ -24,15 +24,7 @@ function Header() {
       <h1 className="headerText">
         <span>SKCET SGPA Calculator</span>
         {totalCalculations !== null && totalCalculations !== undefined && (
-          <small
-            style={{
-              display: "block",
-              fontSize: "0.7rem",
-              fontWeight: "400",
-              opacity: 0.8,
-              marginTop: "0.25rem",
-            }}
-          >
+          <small>
             {totalCalculations.toLocaleString()} calculations done
           </small>
         )}

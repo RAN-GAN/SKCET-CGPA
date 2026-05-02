@@ -46,40 +46,34 @@ function Calculate({ setContainerVisible }) {
 
   if (getData === "noOfSubjects") {
     return (
-      <div className="container">
+      <div className="container panel">
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
-          <label htmlFor="subjects">Number of Subjects: </label>
-          <br />
+          <label htmlFor="subjects">Number of Subjects</label>
           <input required type="number" id="subjects" name="subjects" min="1" />
           {error && (
-            <p
-              style={{
-                color: "white",
-                backgroundColor: "red",
-                border: "1px solid darkred",
-                borderRadius: "5px",
-                padding: "10px",
-                margin: "10px 0",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
+            <p className="inline-error">
               {error}
             </p>
           )}
-          <button type="button" onClick={() => setContainerVisible(false)}>
-            Back
-          </button>
-          <button type="button" onClick={handleSubmit}>
-            Submit
-          </button>
+          <div className="buttons-row">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={() => setContainerVisible(false)}
+            >
+              Back
+            </button>
+            <button className="btn btn-primary" type="button" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     );
   } else if (getData === "creditEntry") {
     return (
-      <div className="container">
+      <div className="container panel">
         <h2>SGPA Calculator</h2>
         <form id="sgpaForm">
           {Array.from({ length: noOfSubjects }, (_, index) => (
@@ -87,7 +81,6 @@ function Calculate({ setContainerVisible }) {
               <label htmlFor={`credit${index + 1}`}>
                 Credit of Subject {index + 1}
               </label>
-              <br />
               <input
                 required
                 type="number"
@@ -98,7 +91,6 @@ function Calculate({ setContainerVisible }) {
               <label htmlFor={`grade${index + 1}`}>
                 Grade Obtained in Subject {index + 1}
               </label>
-              <br />
               <select id={`grade${index + 1}`} name={`grade${index + 1}`}>
                 <option value="">-select-</option>
                 <option value="10">O</option>
@@ -111,12 +103,14 @@ function Calculate({ setContainerVisible }) {
               </select>
             </div>
           ))}
-          <button type="button" onClick={handleBack}>
-            Back
-          </button>
-          <button type="button" onClick={handleCalculate}>
-            Calculate
-          </button>
+          <div className="buttons-row">
+            <button className="btn btn-secondary" type="button" onClick={handleBack}>
+              Back
+            </button>
+            <button className="btn btn-primary" type="button" onClick={handleCalculate}>
+              Calculate
+            </button>
+          </div>
         </form>
       </div>
     );

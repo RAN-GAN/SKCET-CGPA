@@ -244,8 +244,7 @@ function GetResult({ setContainerVisible }) {
 
   if (loading) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
-        <br />
+      <div className="container panel loading">
         <h2>Please Wait{".".repeat(dotCount)}</h2>
       </div>
     );
@@ -253,10 +252,9 @@ function GetResult({ setContainerVisible }) {
 
   if (!detailsAvailable) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
-        <br />
+      <div className="container panel">
         <h2>Get your Results here!</h2>
-        <div id="sgpaForm">
+        <div id="sgpaForm" className="form-stack">
           <label htmlFor="Roll">Enter Your Roll Number</label>
           <input type="text" required onChange={handleRollChange} />
           <label htmlFor="dob">Enter Your Date Of Birth</label>
@@ -267,12 +265,18 @@ function GetResult({ setContainerVisible }) {
             id="dob"
             onChange={handleDobChange}
           />
-          <button type="button" onClick={() => setContainerVisible(false)}>
-            Back
-          </button>
-          <button type="button" onClick={handleSumbit}>
-            Submit
-          </button>
+          <div className="buttons-row">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={() => setContainerVisible(false)}
+            >
+              Back
+            </button>
+            <button className="btn btn-primary" type="button" onClick={handleSumbit}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -280,44 +284,21 @@ function GetResult({ setContainerVisible }) {
 
   if (error) {
     return (
-      <div className="container" style={{ fontSize: "20px" }}>
-        <br />
-        <h2>⚠️ Oops! We ran into an issue.</h2>
-        <div id="sgpaForm">
-          <div
-            style={{
-              background: "linear-gradient(135deg, #6b9edd 80%, #3a6ea5 100%)",
-              borderRadius: "12px",
-              padding: "20px 24px",
-              boxShadow: "0 4px 16px rgba(33, 120, 197, 0.15)",
-              color: "#fff",
-              marginBottom: "18px",
-              border: "1.5px solid #3a6ea5",
-              maxWidth: "420px",
-              margin: "0 auto 18px auto",
-              textAlign: "center",
-            }}
-          >
-            <p style={{ margin: 0, color: "rgba(255, 216, 216, 0.8)" }}>
-              {error}
-            </p>
+      <div className="container panel">
+        <h2>Oops, we ran into an issue.</h2>
+        <div id="sgpaForm" className="form-stack">
+          <div className="error-card">
+            <p>{error}</p>
           </div>
-          <button
-            type="button"
-            onClick={() => setContainerVisible(false)}
-            style={{
-              background: "#3a6ea5",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              padding: "10px 22px",
-              cursor: "pointer",
-            }}
-            onMouseOver={(e) => (e.target.style.background = "#245080")}
-            onMouseOut={(e) => (e.target.style.background = "#3a6ea5")}
-          >
-            Back
-          </button>
+          <div className="buttons-row">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={() => setContainerVisible(false)}
+            >
+              Back
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -329,25 +310,17 @@ function GetResult({ setContainerVisible }) {
       (semester === "2" || semester === "4") && result.calculatedSGPA;
 
     return (
-      <div
-        className="container result-table-container"
-        style={{ fontSize: "18px", maxWidth: 800, margin: "0 auto" }}
-      >
+      <div className="container panel result-table-container">
         {/* Audio element for SGPA < 7.5 */}
         <audio ref={audioRef} src="/low-sgpa.mp3" preload="auto" />
-        <br />
         <h2>Results for {result.roll}</h2>
-        <div style={{ marginBottom: 16 }}>
+        <div className="result-meta">
           <strong>Semester {semester} Results</strong>
           {showSGPA && (
-            <span
-              style={{ marginLeft: 16, fontWeight: "bold", color: "#feb414" }}
-            >
-              SGPA: {result.calculatedSGPA}
-            </span>
+            <span className="sgpa-pill">SGPA: {result.calculatedSGPA}</span>
           )}
         </div>
-        <div style={{ width: "100%", overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="proper-result-table">
             <thead>
               <tr>
@@ -387,11 +360,11 @@ function GetResult({ setContainerVisible }) {
             </tbody>
           </table>
         </div>
-        <div className="back" style={{ marginTop: 24, textAlign: "center" }}>
+        <div className="buttons-row">
           <button
             type="button"
             onClick={() => setContainerVisible(false)}
-            className="back-button"
+            className="btn btn-secondary"
           >
             Back
           </button>

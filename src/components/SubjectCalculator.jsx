@@ -33,17 +33,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
 
   if (!departmentSubjects) {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          flexDirection: "column",
-          height: "100vh",
-          padding: "20px",
-          textAlign: "center",
-        }}
-      >
+      <div className="container panel empty-state">
         <h2>
           {error ||
             "We are currently working on adding more departments and subjects for this semester."}
@@ -51,10 +41,17 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
           <br />
           Meanwhile try using the <b>"CALCULATE YOURSELF"</b> option.
         </h2>
-        <button type="button" onClick={() => setContainerVisible(false)}>
+        <div className="buttons-row">
+          <button
+            className="btn btn-secondary"
+            type="button"
+            onClick={() => setContainerVisible(false)}
+          >
           Back to Menu
-        </button>
+          </button>
+        </div>
         <iframe
+          className="request-frame"
           src="https://docs.google.com/forms/d/e/1FAIpQLSecosqb3nHjCk46PvOhQBpH54mtFHpupVAzWvf8b5tIWeWxLA/viewform?embedded=true"
           width="100%"
           height="80%"
@@ -111,8 +108,8 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
 
   if (view === "input") {
     return (
-      <div className="container">
-        <h1 style={{ textAlign: "center" }}>
+      <div className="container panel">
+        <h1>
           {dept} - {year}
         </h1>
         <h2>SGPA Calculator</h2>
@@ -125,11 +122,9 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
         >
           {Object.keys(departmentSubjects).map((subject, index) => (
             <div key={subject} className="subject-entry-auto">
-              {" "}
               <label htmlFor={`grade-${subject.replace(/\s+/g, "-")}`}>
                 {subject}
               </label>
-              <br />
               <select
                 className="creditInput"
                 id={`grade-${subject.replace(/\s+/g, "-")}`}
@@ -166,10 +161,18 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
             </div>
           ))}
           {error && <p className="error-message">{error}</p>}
-          <button type="button" onClick={() => setContainerVisible(false)}>
-            Back to Menu
-          </button>
-          <button type="submit">Calculate SGPA</button>
+          <div className="buttons-row">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={() => setContainerVisible(false)}
+            >
+              Back to Menu
+            </button>
+            <button className="btn btn-primary" type="submit">
+              Calculate SGPA
+            </button>
+          </div>
         </form>
       </div>
     );
