@@ -105,7 +105,7 @@ function LandingPage() {
               Calculate Yourself
             </div>
           </button>
-          <button className="deptB" type="button" onClick={handleGetResult}>
+          {/* <button className="deptB" type="button" onClick={handleGetResult}>
             <div className="LogoNameWrapper">
               <img
                 className="deptLogo"
@@ -114,7 +114,7 @@ function LandingPage() {
               />
               Check Result
             </div>
-          </button>
+          </button> */}
           {/* <button className="deptB" type="button" onClick={handleStudentUpdate}>
             <div className="LogoNameWrapper">
               <img
