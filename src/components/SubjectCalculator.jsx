@@ -85,7 +85,7 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
       const credit = departmentSubjects[subject];
 
       if (gradeValue !== "" && gradeValue !== "\0" && !isNaN(credit)) {
-        totalGradePoints += parseInt(gradeValue) * credit;
+        totalGradePoints += parseFloat(gradeValue) * credit;
         totalCredit += credit;
         hasSelectedAtLeastOneGrade = true;
       }
@@ -133,7 +133,8 @@ function SubjectCalculator({ year, dept, setContainerVisible }) {
                 onChange={(e) => handleGradeChange(subject, e.target.value)}
               >
                 <option value="">-Select Grade-</option>
-                {year === "1st Year" ? (
+                {/* R2025 and R2026 batches (Sem 1 and Sem 3) use the S/C+ scale */}
+                {year === "1st Year" || year === "2nd Year" ? (
                   <>
                     <option value="10">S</option>
                     <option value="9">A+</option>
