@@ -1,20 +1,3 @@
-// Odd-semester courses for AY 2026-27, from "AY 26-27 _ Digii Course updation Info.xlsx".
-//
-// Year keys map to the semester the exam is written in:
-//   1st Year = Sem 1 (2026-30 batch, R2026)  |  2nd Year = Sem 3 (2025-29 batch, R2025)
-//   3rd Year = Sem 5 (2024-28 batch, R2022)  |  4th Year = Sem 7 (2023-27 batch, R2022)
-//   5th Year = Sem 9 (M.Tech CSE, 2022-27 batch)
-//
-// Every credit is taken from that department's AY 26-27 BOS curriculum (the Appendix PDFs,
-// one per department and batch), matched by course code and title, and each semester's
-// total here equals the total printed in its curriculum. Those PDFs supersede the older
-// copies on https://skcet.ac.in/exams/regulations/, which still show pre-revision credits.
-//
-// Electives are collapsed into the slots the curriculum defines for that semester - pick
-// the slot matching the elective you took. Honours/Minors courses are not listed: they sit
-// outside the semester's regular credit slots. A department/semester appears only when the
-// whole semester could be sourced this way.
-
 export const subjectsByYear = {
   "1st Year": {
     "MTech CSE": {
