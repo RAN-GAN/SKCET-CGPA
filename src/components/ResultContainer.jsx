@@ -10,6 +10,9 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         console.error("Failed to increment count:", err),
       );
 
+      // GA4 event (gtag is defined in index.html; absent if the script is stripped)
+      window.gtag?.("event", "calculation_done", { calc_mode: mode });
+
       // Play audio if SGPA is less than 7.5
       if (score < 7.5) {
         const audio = new Audio("/SKCET-CGPA/low-sgpa.mp3");
@@ -19,7 +22,7 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         audioRef.current = audio;
       }
     }
-  }, [score]);
+  }, [score, mode]);
 
   const handleBack = () => {
     if (audioRef.current) {
