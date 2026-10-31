@@ -541,8 +541,84 @@ select:focus {
   border: 0;
 }
 
-footer {
-  display: none;
+.app-footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: center;
+  gap: 1rem;
+}
+
+.footer-credits {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.footer-credits a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.footer-credits a:hover {
+  text-decoration: underline;
+  color: var(--color-primary-light);
+}
+
+/* Non-invasive Ad Banner Styles */
+.ad-wrapper {
+  margin: 1rem auto;
+  text-align: center;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ad-badge {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.ad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.ad-container iframe {
+  border: 0;
+  max-width: 100%;
+  display: block;
+}
+
+.ad-result {
+  margin: 1.5rem auto 1rem;
+}
+
+@media (max-width: 500px) {
+  .ad-container iframe {
+    transform: scale(0.72);
+    transform-origin: center center;
+    margin: -8px 0;
+  }
 }
 
 @keyframes fade-up {

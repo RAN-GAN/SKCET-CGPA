@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import AdBanner from "./AdBanner";
 
 function ResultContainer({ score, setGetData, mode, onBack }) {
   const API_URL = "https://cold-sea-e845.pradeepmojo1708.workers.dev";
@@ -38,7 +39,7 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         <h2>Please fill all the fields</h2>
         <div className="buttons-row">
           <button className="btn btn-secondary" type="button" onClick={handleBack}>
-          Back
+            Back
           </button>
         </div>
       </div>
@@ -53,6 +54,7 @@ function ResultContainer({ score, setGetData, mode, onBack }) {
         <small id="disclaimer">
           Disclaimer: This does not represent your final SGPA or CGPA.
         </small>
+        <AdBanner className="ad-result" />
         <div className="buttons-row">
           <button className="btn btn-secondary" type="button" onClick={handleBack}>
             Back

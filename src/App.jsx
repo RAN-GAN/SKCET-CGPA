@@ -1,10 +1,11 @@
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 import Footer from "./components/Footer";
+
 function App() {
   return (
     <>
-      <Header></Header>
+      <Header />
       <div className="visually-hidden">
         <h2>SKCET CGPA & SGPA Calculator for Tamil Nadu Students</h2>
         <p>
@@ -39,8 +40,9 @@ function App() {
       <main className="app-main">
         <LandingPage />
       </main>
-      {/* <Footer></Footer> */}
+      <Footer />
     </>
   );
 }
+
 export default App;
